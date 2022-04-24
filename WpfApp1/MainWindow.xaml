@@ -33,14 +33,12 @@
             </Setter>-->
 
         </Style>
-
-
-
     </Window.Resources>
     <Grid>
         <UniformGrid VerticalAlignment="Center" Columns="4">
-            <Button Content="D" Style="{StaticResource D}"/>
-            <TextBox Tag="Соси" Style="{StaticResource BaseTextBox}"/>
+
+            <Button Content="D" Style="{StaticResource D}" Command="{Binding Add}"/>
+            <TextBox Tag="Соси" Style="{StaticResource BaseTextBox}" Text="{Binding Count}"/>
 
         </UniformGrid>
     </Grid>
