@@ -5,8 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Classes;
-using Classes.BaseModels;
+using Models.Models;
+using Models.BaseModels;
 
 namespace ViewModels.UserVm
 {

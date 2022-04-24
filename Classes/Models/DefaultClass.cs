@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Classes
+namespace Models.Models
 {
     abstract public class DefaultClass : INotifyPropertyChanged
     {     
