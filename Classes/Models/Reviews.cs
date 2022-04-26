@@ -12,23 +12,9 @@ namespace Models.Models
 
         private string? _text;
 
-        private Book? _book;
-
         private User? _user;
 
-        public Book Book
-        {
-            get { 
-                if (_book == null)
-                    _book = new Book();
-                return _book;
-            }
-            set
-            {
-                _book = value;
-                OnPropertyChanged();
-            }
-        }
+        public ICollection<Book> Books { get; set; }
         public User User
         {
             get
@@ -57,20 +43,6 @@ namespace Models.Models
                 OnPropertyChanged();
             }
         }
-
-        public int Rating
-        {
-            get
-            {
-                return _setrating;
-            }
-            set
-            {
-                _setrating = value;
-                OnPropertyChanged();
-            }
-        }
-
 
     }
 }

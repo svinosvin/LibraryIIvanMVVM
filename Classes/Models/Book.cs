@@ -10,18 +10,7 @@ namespace Models.Models
     {
         private string? _title;
 
-        private string _rating; 
-
-        private Author? _author;
-
-
-        private string Rate
-        {
-            get
-            {
-                return AvgRating();
-            }
-        }
+        private Author? _author;    
         public string Title
         {
             get
@@ -50,27 +39,28 @@ namespace Models.Models
                 OnPropertyChanged();
             }
         }
-        public ICollection<Reviews> Reviews { get; set; } = new List<Reviews>();
+        public ICollection<Reviews> Reviews { get; set; }
+        public ICollection<Rating> Ratings { get; set; }
 
 
-        public string AvgRating()
-        {
-            if (Reviews.Count == 0)
-            {
-                return "";
-            }
-            else
-            {
-                int rate = 0;
-                ICollection<Reviews> local = Reviews.Where(x => x.Rating != -1).ToList();
-                foreach (var item in local)
-                {
-                    rate += item.Rating;
-                }
-                float avg = rate / local.Count;
-                return $"{avg:f1}";
-            }
-        }
+        //public string AvgRating()
+        //{
+        //    if (Reviews.Count == 0)
+        //    {
+        //        return "";
+        //    }
+        //    else
+        //    {
+        //        int rate = 0;
+        //        ICollection<Reviews> local = Reviews.Where(x => x.Rating != -1).ToList();
+        //        foreach (var item in local)
+        //        {
+        //            rate += item.Rating;
+        //        }
+        //        float avg = rate / local.Count;
+        //        return $"{avg:f1}";
+        //    }
+        //}
 
     }
 }
