@@ -10,7 +10,11 @@ namespace Models.Models
     {
         private string? _title;
 
-        private Author? _author;    
+        private int _count;
+
+        private Author? _author;
+
+      
         public string Title
         {
             get
@@ -36,6 +40,19 @@ namespace Models.Models
             set
             {
                 _author = value;
+                OnPropertyChanged();
+            }
+        }
+        public int Count
+        {
+            get
+            {
+
+                return _count;
+            }
+            set
+            {
+                _count = value;
                 OnPropertyChanged();
             }
         }

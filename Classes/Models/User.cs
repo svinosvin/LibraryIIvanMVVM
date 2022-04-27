@@ -60,7 +60,7 @@ namespace Models.Models
             }
         }
         public int PersonId { get; set; }
-        public ICollection<BookMark>? BookMarks { get; set; }
+        public ICollection<Favourite>? Favourites { get; set; }
         public ICollection<HistoryTransactions>? Histories { get; set; }
 
 

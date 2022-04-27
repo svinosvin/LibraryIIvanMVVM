@@ -27,7 +27,7 @@ namespace DataContext
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             #region User
-            modelBuilder.Entity<User>().HasMany(x => x.BookMarks).WithOne(x => x.User);
+            modelBuilder.Entity<User>().HasMany(x => x.Favourites).WithMany(x=>x.Users);
             modelBuilder.Entity<User>().HasMany(x => x.Histories).WithOne(x => x.User);
             modelBuilder.Entity<User>().HasOne(x => x.Person);
             #endregion
