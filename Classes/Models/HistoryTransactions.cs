@@ -10,6 +10,9 @@ namespace Models.Models
     {
         private Book? _book;
         private User? _user;
+        private DateTime _begin;
+        private DateTime _end;
+       
         public Book Book {
             get {
                 if(_book == null)
@@ -35,7 +38,31 @@ namespace Models.Models
                 OnPropertyChanged();
             }
         }
-        
+        public DateTime Begin
+        {
+            get
+            {
+                return _begin;
+            }
+            set
+            {
+                _begin = value;
+                OnPropertyChanged();
+            }
+        }
+        public DateTime End
+        {
+            get
+            {
+                return _end;
+            }
+            set
+            {
+                _end = value;
+                OnPropertyChanged();
+            }
+        }
+
 
     }
 }

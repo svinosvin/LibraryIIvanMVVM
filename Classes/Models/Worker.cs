@@ -13,11 +13,61 @@ namespace Models.Models
         Admin
     }
 
-    public class Worker : Person
+    public class Worker : DefaultClass
     {
-      
+
+        private string? _login;
+
+        private string? _password;
+
+        private Person? _person;
+
         private PositionAtWork _position;
-       
+
+
+   
+        public string Login
+        {
+            get
+            {
+                if (_login == null)
+                    return "";
+                return _login;
+            }
+            set
+            {
+                _login = value;
+                OnPropertyChanged();
+            }
+        }
+        public string Password
+        {
+            get
+            {
+                if (_password == null)
+                    return "";
+                return _password;
+            }
+            set
+            {
+                _password = value;
+                OnPropertyChanged();
+            }
+        }
+        public Person Person
+        {
+            get
+            {
+                if (_person == null)
+                    _person = new Person();
+                return _person;
+            }
+            set
+            {
+                _person = value;
+                OnPropertyChanged();
+            }
+        }
         public PositionAtWork Position
         {
             get { return _position; }
@@ -26,7 +76,8 @@ namespace Models.Models
                 _position = value;
                 OnPropertyChanged();
             }
-        }     
+        }
+        public int PersonId { get; set;}
 
 
     }

@@ -8,12 +8,12 @@ namespace Models.Models
 {
     public class Person: DefaultClass
     {
-        public string? _name;
-        public string? _surname;
-        public string? _firstname;
-        public string? _email; 
-        public string? _telnumber;
-        public DateTime _birthDate;
+        private string? _name;
+        private string? _surname;
+        private string? _firstname;
+        private string? _email;
+        private string? _telnumber;
+        private DateTime _birthDate;
 
         public string Name
         {

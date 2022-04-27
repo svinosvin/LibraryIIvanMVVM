@@ -69,5 +69,8 @@ namespace Models.Models
                 OnPropertyChanged();
             }
         }
+
+        public ICollection<Book>? Books;
+
     }
 }

@@ -21,7 +21,7 @@ namespace Models.Models
                 OnPropertyChanged();
             }
         }
-        ICollection<Book> Books { get; set; }
+        public ICollection<Book>? Books { get; set; }
 
     }
 }

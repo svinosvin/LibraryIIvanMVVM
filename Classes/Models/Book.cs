@@ -39,8 +39,8 @@ namespace Models.Models
                 OnPropertyChanged();
             }
         }
-        public ICollection<Reviews> Reviews { get; set; }
-        public ICollection<Rating> Ratings { get; set; }
+        public ICollection<Reviews>? Reviews { get; set; }
+        public ICollection<Rating>? Ratings { get; set; }
 
 
         //public string AvgRating()

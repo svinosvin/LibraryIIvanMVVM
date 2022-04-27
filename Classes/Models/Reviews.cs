@@ -14,7 +14,8 @@ namespace Models.Models
 
         private User? _user;
 
-        public ICollection<Book> Books { get; set; }
+
+        public ICollection<Book>? Books { get; set; }
         public User User
         {
             get
