@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Models.BaseModels
+namespace Project.Commands.Helpers
 {
-    public class DelegateCommand : Services.IDelegateCommand
+    public class DelegateCommand :IDelegateCommand
     {
 
 

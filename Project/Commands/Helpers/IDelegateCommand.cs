@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace Models.Services
+namespace Project.Commands.Helpers
 {
     public interface IDelegateCommand : ICommand
     {

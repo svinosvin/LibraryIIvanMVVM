@@ -6,18 +6,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Models.Models;
-using ViewModels.Base;
-using ViewModels.Stores;
+using Project.Base;
+using Project.Commands;
+using Project.Stores;
 
-namespace ViewModels.UserVm
+namespace Project.ViewModels.UserVm
 {
     public class MainWindowVM:Base.ViewModel
     {
         //ObservableCollection<User> Users = new ObservableCollection<User>();
 
-        private readonly NavigationStore _currentViewModel;
+        private readonly NavigationStore _navigationStore;
 
-        public ViewModel CurrentViewModel { get; set; }
+        public ViewModel CurrentViewModel { 
+            get { return _navigationStore.CurrentViewModel;}
+            set { CurrentViewModel = value; } 
+        }
+        
 
 
         private int _Count = -1;
@@ -58,13 +63,36 @@ namespace ViewModels.UserVm
        //     }
        // }
        
-        public MainWindowVM()
+        public ICommand openHome
         {
-            CurrentViewModel = new ProfileVm();
+            get
+            {
+                return new NavigationCommand<HomeVM>(_navigationStore, () => new HomeVM());
+            }
         }
-       
+        public ICommand openProfile
+        {
+            get
+            {
+                return new NavigationCommand<ProfileVm>(_navigationStore, () => new ProfileVm());
+            }
+            
+            
+        }
 
 
+
+        public MainWindowVM(NavigationStore navigationStore)
+        {
+            this._navigationStore = navigationStore;
+            _navigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
+            
+        }
+
+        private void OnCurrentViewModelChanged()
+        {
+            OnPropertyChanged(nameof(CurrentViewModel));
+        }
 
     }
 }

@@ -5,8 +5,6 @@ VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Classes\Models.csproj", "{A40BAC58-7AF7-45B5-92F9-CF3AD01BA441}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViewModels", "ViewModels\ViewModels.csproj", "{3D725C70-BB7F-4675-9201-7369B751D885}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataContext", "DbContext\DataContext.csproj", "{E94AE813-9A32-4F89-BEB0-936E06755B9E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C6155A14-7123-4DB2-ADFF-90F0095F4793}"
@@ -14,7 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project", "Project\Project.csproj", "{5EC00040-EACE-4E82-A7F6-ABFBD37275F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Project", "Project\Project.csproj", "{5EC00040-EACE-4E82-A7F6-ABFBD37275F2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,10 +24,6 @@ Global
 		{A40BAC58-7AF7-45B5-92F9-CF3AD01BA441}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A40BAC58-7AF7-45B5-92F9-CF3AD01BA441}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A40BAC58-7AF7-45B5-92F9-CF3AD01BA441}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3D725C70-BB7F-4675-9201-7369B751D885}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3D725C70-BB7F-4675-9201-7369B751D885}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3D725C70-BB7F-4675-9201-7369B751D885}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3D725C70-BB7F-4675-9201-7369B751D885}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E94AE813-9A32-4F89-BEB0-936E06755B9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E94AE813-9A32-4F89-BEB0-936E06755B9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E94AE813-9A32-4F89-BEB0-936E06755B9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
