@@ -8,9 +8,11 @@ using System.Windows.Input;
 using Models.Models;
 using Project.Base;
 using Project.Commands;
+using Project.Services;
 using Project.Stores;
+using Project.ViewModels.UserVm;
 
-namespace Project.ViewModels.UserVm
+namespace Project.ViewModels
 {
     public class MainWindowVM:Base.ViewModel
     {
@@ -22,59 +24,32 @@ namespace Project.ViewModels.UserVm
             get { return _navigationStore.CurrentViewModel;}
             set { CurrentViewModel = value; } 
         }
-        
 
 
-        private int _Count = -1;
-        public int Count { get
-            {
-                if (_Count == -1)
-                    _Count = 0;
-                return _Count;
-            } 
-            set {
-                _Count = value;
-                OnPropertyChanged();
-            } 
-        }
+        //public ICommand Add
+        // {
+        //     get
+        //     {
+        //         return new DelegateCommand((obj) =>
+        //         {
+        //             Count++;
+        //         }, (obj1)=> (Count<10) );
+        //     }
+        // }
+      
 
-        public User User
-        {
-            get
-            {
-                return this.User;
-            }
-            set
-            {
-                User = value;
-                OnPropertyChanged();
-
-            }
-        }
-
-       //public ICommand Add
-       // {
-       //     get
-       //     {
-       //         return new DelegateCommand((obj) =>
-       //         {
-       //             Count++;
-       //         }, (obj1)=> (Count<10) );
-       //     }
-       // }
-       
         public ICommand openHome
         {
             get
             {
-                return new NavigationCommand<HomeVM>(_navigationStore, () => new HomeVM());
+                return new NavigationCommand<HomeVM>(new NavigationService<HomeVM>( _navigationStore, () => new HomeVM()));
             }
         }
         public ICommand openProfile
         {
             get
             {
-                return new NavigationCommand<ProfileVm>(_navigationStore, () => new ProfileVm());
+                return new NavigationCommand<ProfileVm>(new NavigationService<ProfileVm>(_navigationStore, () => new ProfileVm()));
             }
             
             
@@ -85,6 +60,7 @@ namespace Project.ViewModels.UserVm
         public MainWindowVM(NavigationStore navigationStore)
         {
             this._navigationStore = navigationStore;
+            navigationStore.CurrentViewModel = new LoginVM(navigationStore);
             _navigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
             
         }

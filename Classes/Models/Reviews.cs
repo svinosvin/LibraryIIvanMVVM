@@ -8,7 +8,7 @@ namespace Models.Models
 {
     public class Reviews : DefaultClass
     {
-        private int _setrating = -1;
+       
 
         private string? _text;
 

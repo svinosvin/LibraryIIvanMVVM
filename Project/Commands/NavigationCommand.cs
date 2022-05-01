@@ -1,5 +1,6 @@
 ﻿using Project.Base;
 using Project.Commands.Helpers;
+using Project.Services;
 using Project.Stores;
 using System;
 using System.Collections.Generic;
@@ -13,18 +14,17 @@ namespace Project.Commands
     public class NavigationCommand<TViewModel> : CommandBase
         where TViewModel : ViewModel
     {
-        private readonly NavigationStore _navigationStore;
-        private readonly Func<TViewModel> _createVM;
 
-        public NavigationCommand(NavigationStore navigationStore, Func<TViewModel> createVM)
+        private readonly NavigationService<TViewModel> _navigationService;
+
+        public NavigationCommand(NavigationService<TViewModel> navigationService)
         {
-            _navigationStore = navigationStore;
-            _createVM = createVM;
+            _navigationService = navigationService;
         }
 
         public override void Execute(object? parameter)
         {
-            _navigationStore.CurrentViewModel = _createVM.Invoke();
+            _navigationService.Navigate();
         }
     }
 

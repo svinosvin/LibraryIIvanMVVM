@@ -13,12 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Project.Views.User
+namespace Project.Views
 {
-    
-    public partial class MainWindow : Window
+    /// <summary>
+    /// Логика взаимодействия для MainWorkerView.xaml
+    /// </summary>
+    public partial class MainWorkerView : UserControl
     {
-        public MainWindow()
+        public MainWorkerView()
         {
             InitializeComponent();
         }

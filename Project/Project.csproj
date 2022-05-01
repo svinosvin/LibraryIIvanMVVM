@@ -11,4 +11,17 @@
     <ProjectReference Include="..\Classes\Models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ViewModels\AdminVm\" />
+    <Folder Include="ViewModels\LoginVm\" />
+    <Folder Include="ViewModels\RegistrationVm\" />
+    <Folder Include="ViewModels\WorkerVm\" />
+    <Folder Include="Views\Admin\" />
+    <Folder Include="Views\Worker\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignThemes" Version="4.5.0" />
+  </ItemGroup>
+
 </Project>

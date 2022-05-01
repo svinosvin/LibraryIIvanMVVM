@@ -1,0 +1,35 @@
+﻿<Window x:Class="Project.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project.Views"
+        xmlns:vm="clr-namespace:Project.ViewModels"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="550" Width="950" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <!--<Window.DataContext>
+        <vm:MainWindowVM/>
+    </Window.DataContext>-->   
+    <Grid>
+          
+        <ContentControl  Content="{Binding CurrentViewModel}">
+            <ContentControl.Resources>
+                <DataTemplate DataType="{x:Type vm:LoginVM}">
+                    <local:LoginView/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type vm:MainAdmVM }">
+                    <local:MainAdminView/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type vm:MainUserVM }">
+                    <local:MainUserView/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type vm:MainWorkerVM }">
+                    <local:MainWorkerView/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type vm:RegistrationVM }">
+                    <local:RegistrationView/>
+                </DataTemplate>
+            </ContentControl.Resources>
+        </ContentControl>
+    </Grid>
+</Window>
