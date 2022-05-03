@@ -6,6 +6,19 @@ using System.Threading.Tasks;
 
 namespace Models.Models
 {
+
+    public enum TypeofBooks{
+        Adventure,
+        Classics,
+        Detective, 
+        Mystery,
+        Fantasy,
+        Historical_Fiction,
+        Horror,
+        Literary_Fiction,
+
+    }
+
     public class Book : DefaultClass
     {
         private string? _title;
@@ -15,6 +28,7 @@ namespace Models.Models
         private Author? _author;
 
       
+        public TypeofBooks TypeofBook { get; set; }
         public string Title
         {
             get

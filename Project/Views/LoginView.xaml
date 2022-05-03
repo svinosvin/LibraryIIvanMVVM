@@ -4,11 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Project.Views"
-             xmlns:vm ="clr-namespace:Project.ViewModels"
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+            
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:components="clr-namespace:Project.Components"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-  
+    
     <Border >
         <!--<Border.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -28,17 +28,23 @@
             </Grid.ColumnDefinitions>
 
             <!--Left Section-->
-            <Border  CornerRadius="10 0 0 10" ClipToBounds="True" Background="#FF0018B2">
-                
+            <Border  CornerRadius="0" ClipToBounds="True">
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF0C0862"/>
+                        <GradientStop Color="#FF150F9B" Offset="0.958"/>
+                        <GradientStop Color="#FF0F0B6F" Offset="0.734"/>
+                    </LinearGradientBrush>
+                </Border.Background>
                 <Border.Clip>
-                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,500,605"/>
+                    <RectangleGeometry RadiusX="0" RadiusY="0" Rect="0,0,500,605"/>
                 </Border.Clip>
 
                 <Grid>
                     <!--Title-->
                     <StackPanel Margin="0 120 0 0" VerticalAlignment="Top">
-                        
-                        <TextBlock Text="Sign up" FontSize="46" FontWeight="Light" Foreground="#ffffff" TextAlignment="Center"/>
+
+                        <TextBlock Text="Login up" FontSize="46" FontWeight="Light" Foreground="#ffffff" TextAlignment="Center"/>
                         <TextBlock Text="Library" FontWeight="Light" FontSize="26" Foreground="#D1F2EB" TextAlignment="Center" Margin="0 15 0 3"/>
                         <TextBlock Text="IIvan" FontWeight="Light" FontSize="26" Foreground="#D1F2EB" TextAlignment="Center"/>
                     </StackPanel>
@@ -84,19 +90,32 @@
             <Border Grid.Column="1" Background="#ffffff" CornerRadius="0 10 10 0">
                 <Grid>
                     <!--Close Icon-->
-                    <Button  VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}"   HorizontalAlignment="Right" Margin="0 13 14 0" Opacity="0.3">
+                    <Button Click="Button_Click" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}"   HorizontalAlignment="Right" Margin="0 13 14 0" Opacity="0.3">
                         <materialDesign:PackIcon Kind="Close" Width="20" Height="20"/>
                     </Button>
-                    
+
 
                     <!--Inputs-->
                     <StackPanel VerticalAlignment="Center" Margin="75 0">
-                        <TextBox BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-20" FontSize="16" materialDesign:HintAssist.Hint="Username" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                        <TextBox BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-20" FontSize="16" materialDesign:HintAssist.Hint="Email"  Margin="0 27 0 27" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                        <PasswordBox BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" FontSize="16" materialDesign:HintAssist.Hint="Password"  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
-                        <PasswordBox BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-18" FontSize="16" materialDesign:HintAssist.Hint="Repeat Password"  Margin="0 27 0 0" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
+                        <TextBox Text="{Binding Username}" BorderThickness="0 0 0 1.5" 
+                                 BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-20"
+                                 FontSize="16" materialDesign:HintAssist.Hint="Username"
+                                 Margin="0 0 0 0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
 
-                        <CheckBox Margin="0 40 0 20" FontSize="13">
+                        <components:BindablePasswordBox  Password="{Binding Password}"
+                                                         BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" 
+                                                         materialDesign:HintAssist.FloatingOffset="0,-18"
+                                                         FontSize="16" materialDesign:HintAssist.Hint="Password" 
+                                                         Margin="0 20 0 0" />
+                        <components:BindablePasswordBox
+                                                        Password="{Binding RepeatPassword}"
+                                                        BorderThickness="0 0 0 1.5" 
+                                                        BorderBrush="#C5C8CC"
+                                                        materialDesign:HintAssist.FloatingOffset="0,-18" FontSize="16" 
+                                                        materialDesign:HintAssist.Hint="Repeat Password" 
+                                                        Margin="0 20 0 0"/>
+
+                        <CheckBox  Margin="0 40 0 20" IsChecked="{Binding isAdmin}" FontSize="13">
                             <TextBlock>
                             <Run Foreground="#b6b6b6">By signing up I agree with</Run>
                             <Run Foreground="#07BF96">terms and conditions</Run>
@@ -113,5 +132,4 @@
 
         </Grid>
     </Border>
-    
 </UserControl>

@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace DataContext
 {
-    class AppDbContextFactory : IDesignTimeDbContextFactory<ApplicationDbContext>
+    public class AppDbContextFactory : IDesignTimeDbContextFactory<ApplicationDbContext>
     {
-        public ApplicationDbContext CreateDbContext(string[] args)
+        public ApplicationDbContext CreateDbContext(string[] args = null)
         {
             var options = new DbContextOptionsBuilder<ApplicationDbContext>();
             options.UseSqlite(@"Data Source=Library.db");

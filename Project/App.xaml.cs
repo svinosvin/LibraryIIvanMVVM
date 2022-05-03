@@ -1,15 +1,12 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using DataContext;
+using Microsoft.Extensions.DependencyInjection;
+using Project.Services;
+using Project.Services.AunthenticationService;
+using Project.Services.Generic;
 using Project.Stores;
 using Project.ViewModels;
-using Project.ViewModels.UserVm;
 using Project.Views;
-using Project.Views.User;
 using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace Project
@@ -19,28 +16,34 @@ namespace Project
     /// </summary>
     public partial class App : Application
     {
-        private readonly ServiceProvider _serviceProvider;
+        private readonly IServiceProvider _serviceProvider;
         public App()
-        {
-            IServiceCollection services = new ServiceCollection();
-            services.AddTransient<NavigationStore>();
-            services.AddSingleton<MainWindowVM>();
-            services.AddSingleton<MainWindow>(s => new MainWindow()
-            {
-                DataContext = s.GetRequiredService<MainWindowVM>()
-            });
-            _serviceProvider = services.BuildServiceProvider();
-
+        {           
+            _serviceProvider = createServiceProvider();
         }
         protected override void OnStartup(StartupEventArgs e)
         {
 
-
             MainWindow = _serviceProvider.GetRequiredService<MainWindow>();
-
             MainWindow.Show();
-            
-        //    base.OnStartup(e);  
+            base.OnStartup(e);  
+        }
+
+        private IServiceProvider createServiceProvider()
+        {
+            IServiceCollection services = new ServiceCollection();
+            services.AddSingleton<IAunthenticationService, AunthenticationService>();
+            services.AddSingleton<NavigationStore>();
+            services.AddSingleton<MainWindowVM>();
+            services.AddSingleton<AppDbContextFactory>();
+            services.AddSingleton<IAccountDataService, AccountDataService>();
+            services.AddSingleton<MainWindow>(s => new MainWindow()
+            {
+                DataContext = s.GetRequiredService<MainWindowVM>()
+            });
+
+
+            return services.BuildServiceProvider();
         }
     }
 }
