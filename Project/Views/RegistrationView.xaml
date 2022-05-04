@@ -4,9 +4,134 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Project.Views"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:components="clr-namespace:Project.Components"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <TextBlock> Registration</TextBlock>
-    </Grid>
+
+    <Border >
+        <!--<Border.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF0C0862"/>
+                <GradientStop Color="#FF150F9B" Offset="0.958"/>
+                <GradientStop Color="#FF0F0B6F" Offset="0.734"/>
+            </LinearGradientBrush>
+        </Border.Background>-->
+        <Grid Margin="0">
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="30" ShadowDepth="1" Opacity="0.4"/>
+            </Grid.Effect>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Left Section-->
+            <Border Grid.Column="0" Background="#ffffff" CornerRadius="0 ">
+                <Grid>
+                    <!--Close Icon-->
+                    <Button VerticalAlignment="Top" HorizontalAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}"    Margin="0 13 14 0" Opacity="0.3">
+                        <materialDesign:PackIcon Kind="AccountAdd" Width="30" Height="30"/>
+                    </Button>
+
+                    <StackPanel Margin="0 20 0 0" >
+                        <TextBlock Text="Sign up" FontSize="46" FontWeight="Light" Foreground="#FFE65454" TextAlignment="Center"/>
+                        <TextBlock Text="Library IIvan" FontWeight="Light" FontSize="26" Foreground="#FFE65454" TextAlignment="Center" Margin="0 15 0 3"/>
+
+                    </StackPanel>
+
+
+                    <!--Inputs-->
+                    <StackPanel VerticalAlignment="Center" Margin="75 100 75 60">
+                        <TextBox Text="{Binding Username}" BorderThickness="0 0 0 1.5" 
+                                 BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-20"
+                                 FontSize="16" materialDesign:HintAssist.Hint="Username"
+                                 Margin="0 0 0 0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+                        <TextBox Text="{Binding Email,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  BorderThickness="0 0 0 1.5" 
+                                 BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-20"
+                                 FontSize="16" materialDesign:HintAssist.Hint="Email"
+                                 Margin="0 40 0 0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+                        <TextBox Text="{Binding Telephone}" BorderThickness="0 0 0 1.5" 
+                                 BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-20"
+                                 FontSize="16" materialDesign:HintAssist.Hint="Telephone"
+                                 Margin="0 40 0 50" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                       
+
+
+
+
+                    </StackPanel>
+                </Grid>
+
+            </Border>
+            <Border Background="#FDFDFD" CornerRadius="100" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="110" Width="110" Margin="0,336,0,0">
+                <Grid>
+                    <!--Colored Ellipse-->
+                    <Ellipse Width="100" Height="100" StrokeThickness="4" >
+                        <Ellipse.Stroke>
+                            <LinearGradientBrush>
+                                <GradientStop Color="#E27C53" Offset="0.15" />
+                                <GradientStop Color="#DCA530" Offset="0.2" />
+                                <GradientStop Color="#8BB356" Offset="0.3" />
+                                <GradientStop Color="#3BB799" Offset="0.4" />
+                                <GradientStop Color="#67CBEE" Offset="0.5" />
+                                <GradientStop Color="#3699DB" Offset="0.6" />
+                                <GradientStop Color="#9264AA" Offset="0.8" />
+                                <GradientStop Color="#6E94DE" Offset="0.9" />
+                            </LinearGradientBrush>
+                        </Ellipse.Stroke>
+                    </Ellipse>
+
+                    <!--Colored Tick Icon-->
+                    <materialDesign:PackIcon Kind="BookAccount" Width="70" Height="70" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <materialDesign:PackIcon.Foreground>
+                            <LinearGradientBrush StartPoint="0,1">
+                                <GradientStop Color="#E27C53" Offset="0.1" />
+                                <GradientStop Color="#DCA530" Offset="0.3" />
+                                <GradientStop Color="#3BB799" Offset="0.5" />
+                                <GradientStop Color="#67CBEE" Offset="0.7" />
+                                <GradientStop Color="#3699DB" Offset="0.8" />
+                            </LinearGradientBrush>
+                        </materialDesign:PackIcon.Foreground>
+                    </materialDesign:PackIcon>
+                </Grid>
+            </Border>
+            <!--Right Section-->
+            <Border Grid.Column="1" Background="#ffffff" CornerRadius="0 10 10 0">
+                <Grid>
+                    <!--Close Icon-->
+                    <Button Click="Button_Click" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}"   HorizontalAlignment="Right" Margin="0 13 14 0" Opacity="0.3">
+                        <materialDesign:PackIcon Kind="Close" Width="20" Height="20"/>
+                    </Button>
+
+
+                    <!--Inputs-->
+                    <StackPanel VerticalAlignment="Center" Margin="75 0">
+
+
+                        <components:BindablePasswordBox  Password="{Binding Password}"
+                                                         BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" 
+                                                         materialDesign:HintAssist.FloatingOffset="0,-18"
+                                                         FontSize="16" materialDesign:HintAssist.Hint="Password" 
+                                                         Margin="0 0 0 0" />
+                        <components:BindablePasswordBox
+                                                        Password="{Binding RepeatPassword}"
+                                                        BorderThickness="0 0 0 1.5" 
+                                                        BorderBrush="#C5C8CC"
+                                                        materialDesign:HintAssist.FloatingOffset="0,-18" FontSize="16" 
+                                                        materialDesign:HintAssist.Hint="Repeat Password" 
+                                                        Margin="0 40 0 50"/>
+
+                        <StackPanel Orientation="Horizontal">
+                            <Button Content="Sign up"  Background="#05B790" Foreground="#ffffff" FontSize="18" materialDesign:ButtonAssist.CornerRadius="22" Height="45" Width="120"/>
+                            <Button Content="to Login" Command="{Binding toLogin}" materialDesign:ButtonAssist.CornerRadius="22" FontSize="16" Height="45" Width="120" Margin="5 0 0 0" Style="{StaticResource MaterialDesignFlatButton}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+        </Grid>
+    </Border>
 </UserControl>

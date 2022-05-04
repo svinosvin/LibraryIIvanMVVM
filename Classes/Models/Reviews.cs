@@ -10,9 +10,9 @@ namespace Models.Models
     {
        
 
-        private string? _text;
+        private string _text;
 
-        private User? _user;
+        private User _user;
 
 
         public ICollection<Book>? Books { get; set; }

@@ -36,7 +36,7 @@ namespace Project.Services.Generic
 
             using (ApplicationDbContext context = _contextFactory.CreateDbContext())
             {
-                User entity = await context.Users.FirstOrDefaultAsync(x => x.Id == id);
+                User entity = await context.Users.Include(x=>x.Person).FirstOrDefaultAsync(x => x.Id == id);
                 return entity;
             }
         }
@@ -45,7 +45,7 @@ namespace Project.Services.Generic
         {
             using (ApplicationDbContext context = _contextFactory.CreateDbContext())
             {
-                IEnumerable<User> entity = await context.Users.ToListAsync();
+                IEnumerable<User> entity = await context.Users.Include(x=>x.Person).ToListAsync();
                 return entity;
             }
         }
@@ -54,7 +54,7 @@ namespace Project.Services.Generic
         {
             using (ApplicationDbContext context = _contextFactory.CreateDbContext())
             {
-                User user = await context.Users.FirstOrDefaultAsync(x => x.Login == username);
+                User user = await context.Users.Include(x=>x.Person).FirstOrDefaultAsync(x => x.Login == username);
                 return user;
             }
         }

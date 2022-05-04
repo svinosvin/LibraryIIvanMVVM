@@ -1,4 +1,5 @@
 ﻿using DataContext;
+using Microsoft.AspNet.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using Project.Services;
 using Project.Services.AunthenticationService;
@@ -23,6 +24,8 @@ namespace Project
         }
         protected override void OnStartup(StartupEventArgs e)
         {
+            IAunthenticationService aunthentication = _serviceProvider.GetRequiredService<IAunthenticationService>();
+            aunthentication.Register("dsadsa", "2313", "2313", "dsadsa", "dsadsa");
 
             MainWindow = _serviceProvider.GetRequiredService<MainWindow>();
             MainWindow.Show();
@@ -37,6 +40,10 @@ namespace Project
             services.AddSingleton<MainWindowVM>();
             services.AddSingleton<AppDbContextFactory>();
             services.AddSingleton<IAccountDataService, AccountDataService>();
+
+
+            services.AddSingleton<IPasswordHasher, PasswordHasher>();
+
             services.AddSingleton<MainWindow>(s => new MainWindow()
             {
                 DataContext = s.GetRequiredService<MainWindowVM>()

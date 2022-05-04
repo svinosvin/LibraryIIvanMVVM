@@ -15,7 +15,6 @@ namespace Project.ViewModels
 {
     public class LoginVM : ViewModel
     {
-        private readonly NavigationStore _navigationStore;
 
         private bool _isAdmin;
         private string _username;
@@ -56,6 +55,7 @@ namespace Project.ViewModels
         }
 
 
+        private readonly NavigationStore _navigationStore;
 
 
 
@@ -70,7 +70,7 @@ namespace Project.ViewModels
         {
             get
             {
-                return new NavigationCommand<RegistrationVM>(new NavigationService<RegistrationVM>(_navigationStore, () => new RegistrationVM()));
+                return new NavigationCommand<RegistrationVM>(new NavigationService<RegistrationVM>(_navigationStore, () => new RegistrationVM(_navigationStore)));
                 
             }
         }

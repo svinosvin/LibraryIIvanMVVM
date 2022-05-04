@@ -20,13 +20,13 @@ namespace Models.Models
 
         private string? _password;
 
-        private Person? _person;
+        private Person _person;
 
         private PositionAtWork _position;
 
 
    
-        public string Login
+        public string? Login
         {
             get
             {
@@ -40,7 +40,7 @@ namespace Models.Models
                 OnPropertyChanged();
             }
         }
-        public string Password
+        public string? Password
         {
             get
             {

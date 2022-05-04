@@ -21,52 +21,48 @@ namespace Models.Models
 
     public class Book : DefaultClass
     {
-        private string? _title;
-
-        private int _count;
-
-        private Author? _author;
+        
 
       
-        public TypeofBooks TypeofBook { get; set; }
-        public string Title
+        public TypeofBooks? TypeofBook { get; set; }
+        public string? Title
         {
             get
             {
-                if (_title == null)
+                if (Title == null)
                     return "";
-                return _title;
+                return Title;
             }
             set
             {
-                _title = value;
+                Title = value;
                 OnPropertyChanged();
             }
         }
-        public Author Author
+        public Author? Author
         {
             get
             {
-                if (_author == null)
-                    _author = new Author();
-                return _author;
+                if (Author == null)
+                    Author = new Author();
+                return Author;
             }
             set
             {
-                _author = value;
+                Author = value;
                 OnPropertyChanged();
             }
         }
-        public int Count
+        public int? Count
         {
             get
             {
 
-                return _count;
+                return Count;
             }
             set
             {
-                _count = value;
+                Count = value;
                 OnPropertyChanged();
             }
         }

@@ -11,11 +11,11 @@ namespace Models.Models
         private string? _name;
         private string? _surname;
         private string? _firstname;
-        private string? _email;
-        private string? _telnumber;
-        private DateTime _birthDate;
+        private string _email;
+        private string _telnumber;
+        private DateTime? _birthDate;
 
-        public string Name
+        public string? Name
         {
             get
             {
@@ -29,7 +29,7 @@ namespace Models.Models
                 OnPropertyChanged();
             }
         }
-        public string Surname
+        public string? Surname
         {
             get
             {
@@ -43,7 +43,7 @@ namespace Models.Models
                 OnPropertyChanged();
             }
         }
-        public string Firstname
+        public string? Firstname
         {
             get {
                 if (_firstname == null)
@@ -84,7 +84,7 @@ namespace Models.Models
                 OnPropertyChanged();
             }
         }
-        public DateTime BirthDate
+        public DateTime? BirthDate
         {
             get
             {
@@ -100,7 +100,7 @@ namespace Models.Models
         public string GetAge()
         {
             DateTime now = DateTime.Today;
-            int age = now.Year - _birthDate.Year;
+            int age = now.Year - _birthDate.Value.Year;
             if (_birthDate > now.AddYears(-age)) age--;
             return age.ToString();
         }

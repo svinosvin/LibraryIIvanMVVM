@@ -8,8 +8,8 @@ namespace Models.Models
 {
     public class HistoryTransactions : DefaultClass
     {
-        private Book? _book;
-        private User? _user;
+        private Book _book;
+        private User _user;
         private DateTime _begin;
         private DateTime _end;
        

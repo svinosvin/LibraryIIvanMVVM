@@ -27,23 +27,36 @@ namespace DataContext
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             #region User
+            modelBuilder.Entity<User>().Property(x => x.Id).IsRequired(true);
+      
+
             modelBuilder.Entity<User>().HasMany(x => x.Favourites).WithMany(x=>x.Users);
             modelBuilder.Entity<User>().HasMany(x => x.Histories).WithOne(x => x.User);
             modelBuilder.Entity<User>().HasOne(x => x.Person);
             #endregion
 
             #region Worker
+            modelBuilder.Entity<Worker>().Property(x => x.Id).IsRequired(true);
             modelBuilder.Entity<Worker>().HasOne(x => x.Person);
             #endregion
 
             #region Book
+            modelBuilder.Entity<Book>().Property(x => x.Id).IsRequired(true);
             modelBuilder.Entity<Book>().HasMany(x => x.Reviews).WithMany(x => x.Books);
             modelBuilder.Entity<Book>().HasMany(x => x.Ratings).WithMany(x => x.Books);
             #endregion
 
             #region Author
+            modelBuilder.Entity<Author>().Property(x => x.Id).IsRequired(true);
             modelBuilder.Entity<Author>().HasMany(x => x.Books).WithOne(x => x.Author);
             #endregion
+
+            #region Person
+            modelBuilder.Entity<Person>().Property(x => x.Id).IsRequired(true);
+            #endregion
+
+
+
 
             base.OnModelCreating(modelBuilder);
         }

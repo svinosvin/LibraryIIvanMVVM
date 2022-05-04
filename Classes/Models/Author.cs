@@ -8,69 +8,64 @@ namespace Models.Models
 {
     public class Author : DefaultClass 
     {
-        public string? _name;
-        public string? _surname;
-        public string? _firstname;
-        public string? _description;
+       
 
-        public string Name
+        public string? Name
         {
             get
             {
-                if (_name == null)
-                    return "";
-                return _name;
+                return Name;
             }
             set
             {
-                _name = value;
+                Name = value;
                 OnPropertyChanged();
             }
         }
-        public string Surname
+        public string? Surname
         {
             get
             {
-                if (_surname == null)
+                if (Surname == null)
                     return "";
-                return _surname;
+                return Surname;
             }
             set
             {
-                _surname = value;
+                Surname = value;
                 OnPropertyChanged();
             }
         }
-        public string Firstname
+        public string? Firstname
         {
             get
             {
-                if (_firstname == null)
+                if (Firstname == null)
                     return "";
-                return _firstname;
+                return Firstname;
             }
             set
             {
-                _firstname = value;
+                Firstname = value;
                 OnPropertyChanged();
             }
         }
-        public string Description
+        public string? Description
         {
             get
             {
-                if (_description == null)
+                if (Description == null)
                     return "";
-                return _description;
+                return Description;
             }
             set
             {
-                _description = value;
+                Description = value;
                 OnPropertyChanged();
             }
         }
 
-        public ICollection<Book>? Books;
+        public ICollection<Book>? Books { get; set; }
 
     }
 }

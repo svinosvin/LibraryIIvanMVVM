@@ -24,7 +24,7 @@ namespace Project.Services
 
             using (ApplicationDbContext context = _contextFactory.CreateDbContext())
             {
-
+                
                 EntityEntry<T> createdResult = await context.Set<T>().AddAsync(entity);
                 await context.SaveChangesAsync();
                 return createdResult.Entity;
