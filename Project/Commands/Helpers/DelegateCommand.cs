@@ -37,6 +37,7 @@ namespace Project.Commands.Helpers
         public void Execute(object parameter)
         {
             execute(parameter);
+        
         }
 
         public void RaiseCanExecuteChange()

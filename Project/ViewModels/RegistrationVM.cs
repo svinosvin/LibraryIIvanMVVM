@@ -1,5 +1,6 @@
 ﻿using Project.Commands;
 using Project.Services;
+using Project.Services.AccountService;
 using Project.Stores;
 using System;
 using System.Collections.Generic;
@@ -75,17 +76,22 @@ namespace Project.ViewModels
 
 
         private readonly NavigationStore _navigationStore;
+        private readonly ICurrentAccountService _currentAccount;
 
-        public RegistrationVM(NavigationStore navigationStore)
+        
+
+        public RegistrationVM( ICurrentAccountService currentAccount, NavigationStore navigationStore)
         {
             _navigationStore = navigationStore;
+            _currentAccount = currentAccount;
         }
 
         public ICommand toLogin
         {
             get
             {
-                return new NavigationCommand<LoginVM>(new NavigationService<LoginVM>(_navigationStore, () => new LoginVM(_navigationStore)));
+              
+                return new NavigationCommand<LoginVM>(new NavigationService<LoginVM>(_navigationStore, () => new LoginVM(_currentAccount, _navigationStore)));
 
             }
         }

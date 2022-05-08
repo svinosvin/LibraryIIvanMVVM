@@ -2,6 +2,7 @@
 using Project.Commands;
 using Project.Commands.Helpers;
 using Project.Services;
+using Project.Services.AccountService;
 using Project.Stores;
 using System;
 using System.Collections.Generic;
@@ -54,24 +55,28 @@ namespace Project.ViewModels
             }
         }
 
-
+        private readonly ICurrentAccountService _currentAccount;
         private readonly NavigationStore _navigationStore;
+        private int k = 0;
 
-
-
-
-        public LoginVM(NavigationStore navigationStore)
+        public LoginVM(ICurrentAccountService currentAccount, NavigationStore navigationStore)
         {
+             currentAccount.Logout();
+            _currentAccount = currentAccount;
             _navigationStore = navigationStore;
-        
         }
 
         public ICommand toRegistration
         {
             get
             {
-                return new NavigationCommand<RegistrationVM>(new NavigationService<RegistrationVM>(_navigationStore, () => new RegistrationVM(_navigationStore)));
-                
+                return new RelayCommand((x)=>
+                {
+                    (new NavigationCommand<RegistrationVM>(new NavigationService<RegistrationVM>(_navigationStore, () => new RegistrationVM(_currentAccount, _navigationStore)))).Execute(x);
+                }
+                ,(x) =>true) ;
+
+
             }
         }
 
@@ -86,7 +91,7 @@ namespace Project.ViewModels
         //}
         private void LoginApp(string pass, string password)
         {
-
+                               
         }
 
     }

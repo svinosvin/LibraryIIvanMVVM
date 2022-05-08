@@ -18,6 +18,7 @@ namespace Project.Services
         {
             _navigationStore = navigationStore;
             _createVM = createVM;
+     
         }
 
         public void Navigate()

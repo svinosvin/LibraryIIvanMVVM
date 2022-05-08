@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Project.Services
 {
-    public interface IAccountDataService : IDataService<User>  
+    public interface IWorkerDataService : IDataService<Worker>
     {
-        Task<User> GetByUsername(string username);
-        Task<User> GetByEmail(string email);
+        Task<Worker> GetByUsername(string username);
+        Task<Worker> GetByEmail(string email);
 
     }
 }

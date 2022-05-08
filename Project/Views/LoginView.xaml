@@ -123,8 +123,7 @@
                         </CheckBox>
 
                         <StackPanel Orientation="Horizontal">
-                            <Button Content="Login" materialDesign:ButtonAssist.CornerRadius="22" Background="#05B790" Foreground="#ffffff" FontSize="16" Height="45" Width="120" Margin="0 0 0 0" />
-
+                            <Button Content="Login" IsDefault="True" materialDesign:ButtonAssist.CornerRadius="22" Background="#05B790" Foreground="#ffffff" FontSize="16" Height="45" Width="120" Margin="0 0 0 0" />
                             <Button Content="Sign up" Command="{Binding toRegistration}"  FontSize="18" Style="{StaticResource MaterialDesignFlatButton}" materialDesign:ButtonAssist.CornerRadius="22" Margin="5 0 0 0" Height="45" Width="120"/>
                         </StackPanel>
                     </StackPanel>

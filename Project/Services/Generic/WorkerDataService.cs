@@ -9,20 +9,18 @@ using System.Threading.Tasks;
 
 namespace Project.Services.Generic
 {
-    public class AccountDataService : IAccountDataService
+    public class WorkerDataService : IWorkerDataService
     {
         private readonly AppDbContextFactory _contextFactory;
-        private readonly NonQueryDataService<User> _nonQueryDataService;
-        public AccountDataService(AppDbContextFactory appDbContext)
+        private readonly NonQueryDataService<Worker> _nonQueryDataService;
+
+        public WorkerDataService(AppDbContextFactory contextFactory)
         {
-            _contextFactory = appDbContext;
-            _nonQueryDataService = new NonQueryDataService<User>(appDbContext);
+            _contextFactory = contextFactory;
+            _nonQueryDataService = new NonQueryDataService<Worker>(contextFactory);
         }
-
-        public async Task<User> Create(User entity)
+        public async Task<Worker> Create(Worker entity)
         {
-
-
             return await _nonQueryDataService.Create(entity);
         }
 
@@ -31,43 +29,44 @@ namespace Project.Services.Generic
             return await _nonQueryDataService.Delete(id);
         }
 
-        public async Task<User> Get(int id)
+        public async Task<Worker> Get(int id)
         {
 
             using (ApplicationDbContext context = _contextFactory.CreateDbContext())
             {
-                User entity = await context.Users.Include(x=>x.Person).FirstOrDefaultAsync(x => x.Id == id);
+                Worker entity = await context.Workers.Include(x=>x.Person).FirstOrDefaultAsync(x => x.Id == id);
                 return entity;
             }
         }
 
-        public async Task<IEnumerable<User>> GetAll()
+        public async Task<IEnumerable<Worker>> GetAll()
         {
             using (ApplicationDbContext context = _contextFactory.CreateDbContext())
             {
-                IEnumerable<User> entity = await context.Users.Include(x=>x.Person).ToListAsync();
+                IEnumerable<Worker> entity = await context.Workers.Include(x => x.Person).ToListAsync();
                 return entity;
             }
         }
 
-        public async Task<User> GetByUsername(string username)
+        public async Task<Worker> GetByEmail(string email)
         {
             using (ApplicationDbContext context = _contextFactory.CreateDbContext())
             {
-                User user = await context.Users.Include(x=>x.Person).FirstOrDefaultAsync(x => x.Login == username);
-                return user;
-            }
-        }
-        public async Task<User> GetByEmail(string email)
-        {
-            using (ApplicationDbContext context = _contextFactory.CreateDbContext())
-            {
-                User user = await context.Users.Include(x => x.Person).FirstOrDefaultAsync(x => x.Person.Email == email);
+                Worker user = await context.Workers.Include(x => x.Person).FirstOrDefaultAsync(x => x.Person.Email == email);
                 return user;
             }
         }
 
-        public async Task<User> Update(int id, User entity)
+        public async Task<Worker> GetByUsername(string username)
+        {
+            using (ApplicationDbContext context = _contextFactory.CreateDbContext())
+            {
+                Worker user = await context.Workers.Include(x => x.Person).FirstOrDefaultAsync(x => x.Login == username);
+                return user;
+            }
+        }
+     
+        public async Task<Worker> Update(int id, Worker entity)
         {
             return await _nonQueryDataService.Update(id, entity);
         }

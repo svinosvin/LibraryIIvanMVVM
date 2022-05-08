@@ -14,16 +14,56 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <ContentControl Grid.Row="1" Content="{Binding CurrentViewModel}">
+<!--Header-->
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" ></RowDefinition>
+                <RowDefinition Height="Auto" ></RowDefinition>
+                <RowDefinition Height="Auto" ></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock  Height="60px" Text="Library IIvan" Grid.Row="0" Foreground="White" Padding="5" FontSize="25" Background="{StaticResource BrushPrimary1}"/>
+            <Grid RenderOptions.EdgeMode="Aliased" Grid.Row="1" Height="37px" Background="{StaticResource BrushPrimary2}">
+                <Grid.Resources >
+                    <Style TargetType="RadioButton" BasedOn="{StaticResource NavButton}"/>
+                </Grid.Resources>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <RadioButton x:Name="rb1" IsChecked="True" Grid.Column="0" Content="Books"  />
+                <RadioButton Grid.Column="1" Content="History"/>
+                <RadioButton Grid.Column="2" Content="Profile"/>
+                <RadioButton Grid.Column="3" Content="Favourites"/>
+                <RadioButton Grid.Column="4" Content="About" HorizontalAlignment="Right"/>
+                <RadioButton Grid.Column="5" Content="Sign out" HorizontalAlignment="Right"/>
+            </Grid>
+        </Grid>
+
+<!--Content-->        
+        <ContentControl Grid.Row="1" Content="{Binding CurrentLocalViewModel}">
             <ContentControl.Resources>
                 <DataTemplate DataType="{x:Type vm:HomeVM}">
                     <v:HomeView/>
                 </DataTemplate>
-                <DataTemplate DataType="{x:Type vm:ProfileVm}">
+                <DataTemplate DataType="{x:Type vm:ProfileVM}">
                     <v:HomeView/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type vm:AboutVM}">
+                    <v:AboutView/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type vm:FavouritesVM}">
+                    <v:FavouritesView/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type vm:HistoryVM}">
+                    <v:HistoryView/>
                 </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>
     </Grid>
+    
     
 </UserControl>

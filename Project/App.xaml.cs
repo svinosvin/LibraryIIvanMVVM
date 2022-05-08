@@ -2,6 +2,7 @@
 using Microsoft.AspNet.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using Project.Services;
+using Project.Services.AccountService;
 using Project.Services.AunthenticationService;
 using Project.Services.Generic;
 using Project.Stores;
@@ -24,9 +25,6 @@ namespace Project
         }
         protected override void OnStartup(StartupEventArgs e)
         {
-            IAunthenticationService aunthentication = _serviceProvider.GetRequiredService<IAunthenticationService>();
-            aunthentication.Register("dsadsa", "2313", "2313", "dsadsa", "dsadsa");
-
             MainWindow = _serviceProvider.GetRequiredService<MainWindow>();
             MainWindow.Show();
             base.OnStartup(e);  
@@ -37,12 +35,22 @@ namespace Project
             IServiceCollection services = new ServiceCollection();
             services.AddSingleton<IAunthenticationService, AunthenticationService>();
             services.AddSingleton<NavigationStore>();
-            services.AddSingleton<MainWindowVM>();
             services.AddSingleton<AppDbContextFactory>();
             services.AddSingleton<IAccountDataService, AccountDataService>();
-
-
+            services.AddSingleton<IWorkerDataService, WorkerDataService>();
+            services.AddSingleton<IWorkerAuthenticationService, WorkerAuthenticationService>();
+            services.AddSingleton<ICurrentAccountService, CurrentAccountService>();
             services.AddSingleton<IPasswordHasher, PasswordHasher>();
+
+
+            services.AddSingleton<LoginVM>();
+            services.AddSingleton<RegistrationVM>();
+
+            services.AddSingleton<MainUserVM>();
+            services.AddSingleton<MainAdmVM>();
+            services.AddSingleton<MainWorkerVM>();
+            services.AddSingleton<MainWindowVM>();
+
 
             services.AddSingleton<MainWindow>(s => new MainWindow()
             {

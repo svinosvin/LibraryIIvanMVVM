@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.Identity;
 using Models.Models;
+using Project.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,22 +27,30 @@ namespace Project.Services.AunthenticationService
             {
                 user = await _accountService.GetByUsername(username);
                 PasswordVerificationResult result = _hasher.VerifyHashedPassword(user.Password, password);
-                if(result == PasswordVerificationResult.Success)
+                if(result != PasswordVerificationResult.Success)
                 {
-                    throw new Exception();
+                    throw new InvalidPasswordException(username,password);
                 }
             }
             return user;
 
-        }
-
-        public async Task<bool> Register(string username, string password, string confirmPassword, string email, string telnumber)
+        }   
+        public async Task<RegisterResult> Register(string username, string password, string confirmPassword, string email, string telnumber)
         {
-            bool succes = false;
+            RegisterResult registerResult = RegisterResult.Succes;
 
-            if(password == confirmPassword)
+            if (password == confirmPassword)
+                registerResult = RegisterResult.PasswordNotMatched;
+
+            if (_accountService.GetByUsername(username) != null)
+                registerResult = RegisterResult.UsernameExists;
+
+            if (_accountService.GetByEmail(email) != null)
+                registerResult = RegisterResult.EmailExists;
+
+            if(registerResult == RegisterResult.Succes)
             {
-               
+
                 string HashedPassword = _hasher.HashPassword(password);
                 User user = new User
                 {
@@ -54,10 +63,14 @@ namespace Project.Services.AunthenticationService
                     }
                 };
                 await _accountService.Create(user);
+
             }
-            return succes;
+            return registerResult;
+
+
 
 
         }
+
     }
 }

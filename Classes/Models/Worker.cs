@@ -1,4 +1,5 @@
 ﻿
+using Models.BaseModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace Models.Models
         Admin
     }
 
-    public class Worker : DefaultClass
+    public class Worker : DefaultClass, ITypeOfAccount
     {
 
         private string? _login;
@@ -79,6 +80,10 @@ namespace Models.Models
         }
         public int PersonId { get; set;}
 
-
+        public AccountsVariation GetAccountsVariation()
+        {
+            if (_position == PositionAtWork.Librarian) return AccountsVariation.Worker;
+            else return AccountsVariation.Admin;
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Models.BaseModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 namespace Models.Models
 {
     
-    public class User : DefaultClass
+    public class User : DefaultClass, ITypeOfAccount
     {     
 
         private string? _login;
@@ -63,6 +64,9 @@ namespace Models.Models
         public ICollection<Favourite>? Favourites { get; set; }
         public ICollection<HistoryTransactions>? Histories { get; set; }
 
-
+        public AccountsVariation GetAccountsVariation()
+        {
+            return AccountsVariation.User;
+        }
     }
 }

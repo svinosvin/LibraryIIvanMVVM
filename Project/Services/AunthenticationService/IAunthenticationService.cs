@@ -7,9 +7,17 @@ using System.Threading.Tasks;
 
 namespace Project.Services.AunthenticationService
 {
+    public enum RegisterResult { 
+    Succes,
+    PasswordNotMatched,
+    UsernameExists,
+    EmailExists
+    
+    }
+
     public interface IAunthenticationService
     {
-        Task<bool> Register(string username, string password, string confirmPassword, string email, string telnumber);
+        Task<RegisterResult> Register(string username, string password, string confirmPassword, string email, string telnumber);
         Task<User> Login(string username, string password, string confirmPassword);
 
 
