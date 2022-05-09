@@ -15,7 +15,7 @@ namespace Project.ViewModels
         {
             _navigationStore = navigationStore;
             _currentAccount = currentAccount;
-            navigationStore.CurrentViewModel = new LoginVM(_currentAccount, _navigationStore);
+            navigationStore.CurrentViewModel = new MainUserVM(_currentAccount, _navigationStore);
             _navigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
         }
 

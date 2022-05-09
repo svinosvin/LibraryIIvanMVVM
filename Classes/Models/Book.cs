@@ -21,35 +21,70 @@ namespace Models.Models
 
     public class Book : DefaultClass
     {
-        
 
-      
+
+        private string _title;
+        private string _image;
+
+        private string _description;
+
+        private Author _author;
+        private int? _count;
         public TypeofBooks? TypeofBook { get; set; }
+        public string? Image
+        {
+            get
+            {
+                if (_image == null)
+                    return "";
+                return _image;
+            }
+            set
+            {
+                _image = value;
+                OnPropertyChanged();
+            }
+        }
+        public string? Description
+        {
+            get
+            {
+                if (_description == null)
+                    return "";
+                return _description;
+            }
+            set
+            {
+                _description = value;
+                OnPropertyChanged();
+            }
+        }
         public string? Title
         {
             get
             {
-                if (Title == null)
+                if (_title == null)
                     return "";
-                return Title;
+                return _title;
             }
             set
             {
-                Title = value;
+                _title = value;
                 OnPropertyChanged();
             }
         }
+       
         public Author? Author
         {
             get
             {
-                if (Author == null)
-                    Author = new Author();
+                if (_author == null)
+                    _author = new Author();
                 return Author;
             }
             set
             {
-                Author = value;
+                _author = value;
                 OnPropertyChanged();
             }
         }
@@ -58,14 +93,17 @@ namespace Models.Models
             get
             {
 
-                return Count;
+                return _count;
             }
             set
             {
-                Count = value;
+                _count = value;
                 OnPropertyChanged();
             }
         }
+
+
+
         public ICollection<Reviews>? Reviews { get; set; }
         public ICollection<Rating>? Ratings { get; set; }
 

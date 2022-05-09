@@ -39,13 +39,13 @@ namespace Project.Services.AunthenticationService
         {
             RegisterResult registerResult = RegisterResult.Succes;
 
-            if (password == confirmPassword)
+            if (password != confirmPassword)
                 registerResult = RegisterResult.PasswordNotMatched;
 
-            if (_accountService.GetByUsername(username) != null)
+            if (await _accountService.GetByUsername(username) != null)
                 registerResult = RegisterResult.UsernameExists;
 
-            if (_accountService.GetByEmail(email) != null)
+            if (await _accountService.GetByEmail(email) != null)
                 registerResult = RegisterResult.EmailExists;
 
             if(registerResult == RegisterResult.Succes)

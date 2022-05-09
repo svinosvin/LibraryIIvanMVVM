@@ -13,4 +13,30 @@
     <SolidColorBrush x:Key="BrushPrimary3" Color="{StaticResource ColorPrimary3}"/>
     <SolidColorBrush x:Key="BrushPrimary4" Color="{StaticResource ColorPrimary4}"/>
     <SolidColorBrush x:Key="BrushBackground2" Color="{StaticResource ColorBackground2}"/>
+
+
+
+    <SolidColorBrush x:Key="DarkBaseBrush" Color="#158150" />
+    <Color x:Key="DarkBaseColor">#158150</Color>
+
+    <SolidColorBrush x:Key="MediumBaseBrush" Color="#21a86d" />
+    <Color x:Key="MediumBaseColor">#21a86d</Color>
+
+    <SolidColorBrush x:Key="LightBaseBrush" Color="#FF2CB679" />
+    <Color x:Key="LightBaseColor">#FF2CB679</Color>
+
+    <SolidColorBrush x:Key="UltraLightBaseBrush" Color="#FF3BC588" />
+    <Color x:Key="UltraLightBaseColor">#FF3BC588</Color>
+
+
+    <SolidColorBrush x:Key="DarkBrush" Color="#FFD6D6D6" />
+    <Color x:Key="DarkColor">#FFD6D6D6</Color>
+
+    <SolidColorBrush x:Key="MediumBrush" Color="#FFF1F1F1" />
+    <Color x:Key="MediumColor">#FFF1F1F1</Color>
+
+    <SolidColorBrush x:Key="LightBrush" Color="white" />
+    <Color x:Key="LightColor">white</Color>
+    
+    
 </ResourceDictionary>

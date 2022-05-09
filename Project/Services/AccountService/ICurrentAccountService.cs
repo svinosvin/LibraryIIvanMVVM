@@ -1,15 +1,12 @@
 ﻿using Models.BaseModels;
-using Models.Models;
 using Project.Services.AunthenticationService;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Project.Stores;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Project.Services.AccountService
 {
- 
+
 
     public interface ICurrentAccountService
     {
@@ -21,7 +18,7 @@ namespace Project.Services.AccountService
         public Task<RegisterResult> Register(string username, string password, string confirmPassword, string email, string telnumber, AccountsVariation variation);
 
         public Task<bool> Login(string username, string password, string confirmPassword,bool variation);
-
+        public ICommand GetAuthorizeCommand(NavigationStore _navigationStore);
         public void Logout();
 
     }

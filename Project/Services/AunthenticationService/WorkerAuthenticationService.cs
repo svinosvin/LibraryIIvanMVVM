@@ -21,16 +21,16 @@ namespace Project.Services.AunthenticationService
             _passwordHasher = passwordHasher;
         }
 
-        public async Task<RegisterResult> AddWorker(string username, string email, string telephone, string password, string confirmPassword, AccountsVariation variation)
+        public async Task<RegisterResult> AddWorker(string username, string password, string confirmPassword, string email, string telephone,  AccountsVariation variation)
         {
             RegisterResult registerResult = RegisterResult.Succes;
             PositionAtWork positionAtWork = variation == AccountsVariation.Admin ? PositionAtWork.Admin : PositionAtWork.Librarian;
 
             if (password != confirmPassword)
                 registerResult = RegisterResult.PasswordNotMatched;
-            if (_workerDataService.GetByEmail(email) != null) 
+            if (await _workerDataService.GetByEmail(email) != null) 
                 registerResult = RegisterResult.EmailExists;
-            if (_workerDataService.GetByUsername(username) != null)
+            if (await _workerDataService.GetByUsername(username) != null)
                 registerResult = RegisterResult.UsernameExists;
             if (registerResult == RegisterResult.Succes)
             {

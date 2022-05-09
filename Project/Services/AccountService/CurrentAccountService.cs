@@ -1,11 +1,12 @@
 ﻿using Models.BaseModels;
 using Models.Models;
+using Project.Commands;
 using Project.Services.AunthenticationService;
+using Project.Stores;
+using Project.ViewModels;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Project.Services.AccountService
 {
@@ -24,6 +25,18 @@ namespace Project.Services.AccountService
         public AccountsVariation Variation { get; private set; }
         public bool isLoggedIn => CurrentAccount != null ;
 
+        public ICommand GetAuthorizeCommand(NavigationStore _navigationStore)
+        {
+            if (Variation == AccountsVariation.Admin)
+                return new NavigationCommand<MainAdmVM>(new NavigationService<MainAdmVM>(_navigationStore, () => new MainAdmVM(this, _navigationStore)));
+
+            if (Variation == AccountsVariation.User)
+                return new NavigationCommand<MainUserVM>(new NavigationService<MainUserVM>(_navigationStore, () => new MainUserVM(this, _navigationStore)));
+            
+            
+                return new NavigationCommand<MainWorkerVM>(new NavigationService<MainWorkerVM>(_navigationStore, () => new MainWorkerVM(this, _navigationStore)));
+
+        }
 
         public async Task<bool> Login(string username, string password, string confirmPassword, bool variation)
         {

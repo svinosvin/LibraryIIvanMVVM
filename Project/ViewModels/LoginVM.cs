@@ -57,13 +57,15 @@ namespace Project.ViewModels
 
         private readonly ICurrentAccountService _currentAccount;
         private readonly NavigationStore _navigationStore;
-        private int k = 0;
+       
+        
 
         public LoginVM(ICurrentAccountService currentAccount, NavigationStore navigationStore)
         {
              currentAccount.Logout();
             _currentAccount = currentAccount;
             _navigationStore = navigationStore;
+             
         }
 
         public ICommand toRegistration
@@ -73,8 +75,22 @@ namespace Project.ViewModels
                 return new RelayCommand((x)=>
                 {
                     (new NavigationCommand<RegistrationVM>(new NavigationService<RegistrationVM>(_navigationStore, () => new RegistrationVM(_currentAccount, _navigationStore)))).Execute(x);
+
                 }
-                ,(x) =>true) ;
+                ) ;
+
+
+            }
+        }
+        public ICommand LogIn
+        {
+            get
+            {
+                return new RelayCommand((x) =>
+                {
+                    (_currentAccount.GetAuthorizeCommand(_navigationStore)).Execute(x);
+                }
+                );
 
 
             }
@@ -85,7 +101,7 @@ namespace Project.ViewModels
         //{
         //    get
         //    {
-               
+
 
         //    }
         //}

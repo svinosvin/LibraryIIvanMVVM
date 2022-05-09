@@ -25,6 +25,8 @@ namespace Project
         }
         protected override void OnStartup(StartupEventArgs e)
         {
+            
+
             MainWindow = _serviceProvider.GetRequiredService<MainWindow>();
             MainWindow.Show();
             base.OnStartup(e);  
