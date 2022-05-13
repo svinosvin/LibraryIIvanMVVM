@@ -36,7 +36,11 @@ namespace Project.Services.Generic
 
             using (ApplicationDbContext context = _contextFactory.CreateDbContext())
             {
-                User entity = await context.Users.Include(x=>x.Person).FirstOrDefaultAsync(x => x.Id == id);
+                User entity = await context.Users.
+                Include(x => x.Person).
+                Include(x => x.Histories).
+                Include(x => x.Favourites).
+                FirstOrDefaultAsync(x => x.Id == id); 
                 return entity;
             }
         }
@@ -54,7 +58,11 @@ namespace Project.Services.Generic
         {
             using (ApplicationDbContext context = _contextFactory.CreateDbContext())
             {
-                User user = await context.Users.Include(x=>x.Person).FirstOrDefaultAsync(x => x.Login == username);
+                User user = await context.Users.
+                Include(x=>x.Person).
+                Include(x => x.Histories).  
+                Include(x => x.Favourites).
+                FirstOrDefaultAsync(x => x.Login == username);
                 return user;
             }
         }

@@ -24,7 +24,7 @@ namespace Project.Services
 
             using (ApplicationDbContext context = _contextFactory.CreateDbContext())
             {
-                
+                context.Entry(entity).State = EntityState.Detached;
                 EntityEntry<T> createdResult = await context.Set<T>().AddAsync(entity);
                 await context.SaveChangesAsync();
                 return createdResult.Entity;
@@ -35,6 +35,8 @@ namespace Project.Services
         {
             using (ApplicationDbContext context = _contextFactory.CreateDbContext())
             {
+
+               
 
                 T entityEntry = await context.Set<T>().FirstOrDefaultAsync((x) => x.Id == id);
                 context.Set<T>().Remove(entityEntry);
@@ -47,6 +49,7 @@ namespace Project.Services
             using (ApplicationDbContext context = _contextFactory.CreateDbContext())
             {
                 entity.Id = id;
+                context.Entry(entity).State = EntityState.Detached;
                 context.Set<T>().Update(entity);
                 await context.SaveChangesAsync();
                 return entity;

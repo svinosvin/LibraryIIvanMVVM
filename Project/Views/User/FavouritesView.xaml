@@ -7,7 +7,53 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <TextBlock>FavouritesView</TextBlock>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+
+
+
+        <DockPanel  Grid.Row="0" VerticalAlignment="Center">
+            <DockPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF0C123A"/>
+                    <GradientStop Color="#FF425BFF" Offset="1"/>
+                    <GradientStop Color="#FF2940D9" Offset="0.564"/>
+                </LinearGradientBrush>
+            </DockPanel.Background>
+            <TextBlock Grid.Column="0" Grid.Row="0" Style="{StaticResource BaseText}"   HorizontalAlignment="Center" FontSize="26">Favourites</TextBlock>
+
+        </DockPanel>
+        <ListView
+                  ScrollViewer.CanContentScroll="True" 
+                  ScrollViewer.VerticalScrollBarVisibility="Visible"
+                  MaxHeight="400"
+                  Grid.Row="1"
+                  Margin="5 "  
+                  HorizontalAlignment="Left"  
+                  FontFamily="Book Antiqua" FontSize="16" FontWeight="Normal"
+                  IsSynchronizedWithCurrentItem="False" 
+                   Width="950" ItemsSource="{Binding AllFavourites}">
+            <ListView.View >
+
+                <GridView  AllowsColumnReorder="true">
+                    <GridViewColumn  DisplayMemberBinding="{Binding Book.Title}" 
+                      Header="Book's Title" Width="220"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Book.Author.Name}" 
+                      Header="Author's Name" Width="220"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Book.Author.Surname}" 
+                          Header="Author's Surname" Width="220"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Book.Author.Firstname}" 
+                          Header="Author's Firstname" Width="200"/>
+
+
+                </GridView>
+            </ListView.View>
+        </ListView>
 
     </Grid>
+
+
 </UserControl>

@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:components="clr-namespace:Project.Components"
              xmlns:local="clr-namespace:Project.Views"
              xmlns:vm ="clr-namespace:Project.ViewModels.UserVm"
              xmlns:v="clr-namespace:Project.Views.User"
@@ -11,17 +12,22 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-<!--Header-->
+        <!--Header-->
         <Grid Grid.Row="0">
+            
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" ></RowDefinition>
                 <RowDefinition Height="Auto" ></RowDefinition>
                 <RowDefinition Height="Auto" ></RowDefinition>
             </Grid.RowDefinitions>
+            
             <TextBlock  Height="60px" Text="Library IIvan" Grid.Row="0" Foreground="White" Padding="5" FontSize="25" Background="{StaticResource BrushPrimary1}"/>
+            <Button Click="Button_Click" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}"   HorizontalAlignment="Right" Margin="0 5 5 0" Opacity="0.3">
+                <materialDesign:PackIcon Kind="Close" Width="20" Height="20"/>
+            </Button>
             <Grid RenderOptions.EdgeMode="Aliased" Grid.Row="1" Height="37px" Background="{StaticResource BrushPrimary2}">
                 <Grid.Resources >
                     <Style TargetType="RadioButton" BasedOn="{StaticResource NavButton}"/>

@@ -61,8 +61,9 @@ namespace Models.Models
             }
         }
         public int PersonId { get; set; }
-        public ICollection<Favourite>? Favourites { get; set; }
-        public ICollection<HistoryTransactions>? Histories { get; set; }
+        public ICollection<Favourite>? Favourites { get; set; } = new List<Favourite>();
+        public ICollection<HistoryTransactions>? Histories { get; set; } = new List<HistoryTransactions>();
+        public ICollection<Reviews>? Reviews { get; set; } = new List<Reviews>();
 
         public AccountsVariation GetAccountsVariation()
         {

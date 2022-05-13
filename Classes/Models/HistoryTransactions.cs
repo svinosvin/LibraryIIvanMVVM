@@ -10,6 +10,7 @@ namespace Models.Models
     {
         private Book _book;
         private User _user;
+        private bool _accept;
         private DateTime _begin;
         private DateTime _end;
        
@@ -38,6 +39,20 @@ namespace Models.Models
                 OnPropertyChanged();
             }
         }
+        public int BookId { get; set; }
+        public int UserId { get; set; }
+        public bool Accept
+        {
+            get
+            {
+                return _accept;
+            }
+            set
+            {
+                _accept = value;
+                OnPropertyChanged();
+            }
+        }
         public DateTime Begin
         {
             get
@@ -62,7 +77,8 @@ namespace Models.Models
                 OnPropertyChanged();
             }
         }
-
+        public string DateFormatBegin { get => Begin.ToString(" dd/MM/yyyy"); }
+        public string DateFormatEnd { get => Begin.ToString(" dd/MM/yyyy"); }
 
     }
 }

@@ -1,4 +1,6 @@
-﻿using Project.Base;
+﻿using Models.Models;
+using Project.Base;
+using Project.Services;
 using Project.Services.AccountService;
 using Project.Stores;
 
@@ -10,12 +12,20 @@ namespace Project.ViewModels
 
         private readonly NavigationStore _navigationStore;
         private readonly ICurrentAccountService _currentAccount;
+        private readonly IAccountDataService _accountDataService;
+        private readonly IDataService<Book> _bookDataService;
+        private readonly IWorkerDataService _workerDataService;
 
-        public MainWindowVM(NavigationStore navigationStore, ICurrentAccountService currentAccount)
+
+
+        public MainWindowVM(NavigationStore navigationStore, ICurrentAccountService currentAccount, IAccountDataService accountDataService, IDataService<Book> bookDataService, IWorkerDataService workerDataService)
         {
             _navigationStore = navigationStore;
             _currentAccount = currentAccount;
-            navigationStore.CurrentViewModel = new MainUserVM(_currentAccount, _navigationStore);
+            _accountDataService = accountDataService;
+            _bookDataService = bookDataService;
+            _workerDataService = workerDataService;
+             navigationStore.CurrentViewModel = new MainUserVM(_currentAccount, _navigationStore,_accountDataService,_bookDataService);
             _navigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
         }
 

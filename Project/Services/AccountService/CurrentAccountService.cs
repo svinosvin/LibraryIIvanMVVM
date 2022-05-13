@@ -14,11 +14,23 @@ namespace Project.Services.AccountService
     {
         private readonly IAunthenticationService _aunthenticationService;
         private readonly IWorkerAuthenticationService _workerAuthenticationService;
+        private readonly IAccountDataService _accountDataService;
+        private readonly IDataService<Book> _bookDataService;
+        private readonly IWorkerDataService _workerDataService;
 
-        public CurrentAccountService(IAunthenticationService aunthenticationService, IWorkerAuthenticationService workerAuthenticationService)
+        public CurrentAccountService(
+            IAunthenticationService aunthenticationService,
+            IWorkerAuthenticationService workerAuthenticationService, 
+            IAccountDataService accountDataService, IDataService<Book> 
+            bookDataService, 
+            IWorkerDataService workerDataService)
+
         {
             _aunthenticationService = aunthenticationService;
             _workerAuthenticationService = workerAuthenticationService;
+            _accountDataService = accountDataService;
+            _bookDataService = bookDataService;
+            _workerDataService = workerDataService;
         }
 
         public ITypeOfAccount CurrentAccount { get; private set; }
@@ -31,7 +43,7 @@ namespace Project.Services.AccountService
                 return new NavigationCommand<MainAdmVM>(new NavigationService<MainAdmVM>(_navigationStore, () => new MainAdmVM(this, _navigationStore)));
 
             if (Variation == AccountsVariation.User)
-                return new NavigationCommand<MainUserVM>(new NavigationService<MainUserVM>(_navigationStore, () => new MainUserVM(this, _navigationStore)));
+                return new NavigationCommand<MainUserVM>(new NavigationService<MainUserVM>(_navigationStore, () => new MainUserVM(this, _navigationStore,_accountDataService,_bookDataService)));
             
             
                 return new NavigationCommand<MainWorkerVM>(new NavigationService<MainWorkerVM>(_navigationStore, () => new MainWorkerVM(this, _navigationStore)));

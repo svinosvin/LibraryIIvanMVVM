@@ -3,7 +3,7 @@
 
     <Style x:Key="BaseText" TargetType="{x:Type TextBlock}">
         <Setter Property="FontFamily" Value="{StaticResource BaseFont}" />
-        <Setter Property="FontSize" Value="{StaticResource Regular}" />
+        <Setter Property="FontSize" Value="{StaticResource Smal}" />
         <Setter Property="FontWeight" Value="Light" />
         <Setter Property="Foreground" Value="Black" />
     </Style>

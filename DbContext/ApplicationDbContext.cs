@@ -14,10 +14,13 @@ namespace DataContext
         public DbSet<Worker> Workers { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Book> Books { get; set;}
+
+        public DbSet<Reviews> Reviews { get; set; }
         public DbSet<HistoryTransactions> Transactions { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<Rating> Ratings { get; set; }
 
+        public DbSet<Favourite> Favourites { get;set; }
 
 
 #pragma warning disable CS8618 
@@ -28,10 +31,11 @@ namespace DataContext
         {
             #region User
             modelBuilder.Entity<User>().Property(x => x.Id).IsRequired(true);
-      
+            modelBuilder.Entity<User>().HasMany(x => x.Favourites).WithOne(x=>x.User).HasForeignKey(x=>x.UserId);
+            modelBuilder.Entity<User>().HasMany(x => x.Histories).WithOne(x => x.User).HasForeignKey(x => x.UserId);
+            modelBuilder.Entity<User>().HasMany(x => x.Reviews).WithOne(x => x.User).HasForeignKey(x => x.UserId);
 
-            modelBuilder.Entity<User>().HasMany(x => x.Favourites).WithMany(x=>x.Users);
-            modelBuilder.Entity<User>().HasMany(x => x.Histories).WithOne(x => x.User);
+
             modelBuilder.Entity<User>().HasOne(x => x.Person);
             #endregion
 
@@ -42,8 +46,14 @@ namespace DataContext
 
             #region Book
             modelBuilder.Entity<Book>().Property(x => x.Id).IsRequired(true);
-            modelBuilder.Entity<Book>().HasMany(x => x.Reviews).WithMany(x => x.Books);
-            modelBuilder.Entity<Book>().HasMany(x => x.Ratings).WithMany(x => x.Books);
+            modelBuilder.Entity<Book>().HasMany(x => x.Ratings).WithOne(x => x.Book);
+            modelBuilder.Entity<Book>().HasMany(x => x.Favourites).WithOne(x => x.Book).HasForeignKey(x => x.BookId);
+            modelBuilder.Entity<Book>().HasMany(x => x.Histories).WithOne(x => x.Book).HasForeignKey(x => x.BookId);
+            modelBuilder.Entity<Book>().HasMany(x => x.Reviews).WithOne(x => x.Book).HasForeignKey(x=>x.BookId);
+
+
+
+
             #endregion
 
             #region Author
@@ -55,6 +65,7 @@ namespace DataContext
             modelBuilder.Entity<Person>().Property(x => x.Id).IsRequired(true);
             #endregion
 
+           
 
 
 

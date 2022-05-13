@@ -13,9 +13,10 @@ namespace Models.Models
         private string _text;
 
         private User _user;
+        
 
+        public Book? Book { get; set; }
 
-        public ICollection<Book>? Books { get; set; }
         public User User
         {
             get
@@ -30,6 +31,11 @@ namespace Models.Models
                 OnPropertyChanged();
             }
         }
+
+
+        public int BookId { get; set; }
+        public int UserId { get; set; }
+
         public string Text
         {
             get

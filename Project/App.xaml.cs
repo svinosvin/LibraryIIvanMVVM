@@ -1,6 +1,7 @@
 ﻿using DataContext;
 using Microsoft.AspNet.Identity;
 using Microsoft.Extensions.DependencyInjection;
+using Models.Models;
 using Project.Services;
 using Project.Services.AccountService;
 using Project.Services.AunthenticationService;
@@ -26,7 +27,7 @@ namespace Project
         protected override void OnStartup(StartupEventArgs e)
         {
             
-
+            
             MainWindow = _serviceProvider.GetRequiredService<MainWindow>();
             MainWindow.Show();
             base.OnStartup(e);  
@@ -42,6 +43,8 @@ namespace Project
             services.AddSingleton<IWorkerDataService, WorkerDataService>();
             services.AddSingleton<IWorkerAuthenticationService, WorkerAuthenticationService>();
             services.AddSingleton<ICurrentAccountService, CurrentAccountService>();
+            services.AddSingleton<NonQueryDataService<Book>>();
+            services.AddSingleton<IDataService<Book>, BookDataService>();
             services.AddSingleton<IPasswordHasher, PasswordHasher>();
 
 

@@ -1,4 +1,5 @@
-﻿using Project.Base;
+﻿using Models.Models;
+using Project.Base;
 using Project.Commands;
 using Project.Services;
 using Project.Services.AccountService;
@@ -17,14 +18,18 @@ namespace Project.ViewModels
     {   private readonly ICurrentAccountService _currentAccount;
         private readonly NavigationStore _mainNavigationStore;
         private readonly NavigationStore _localNavigationStore;
-        
+        private readonly IAccountDataService _accountDataService;
+        private readonly IDataService<Book> _bookDataService;
 
-        public MainUserVM(ICurrentAccountService currentAccount, NavigationStore mainNavigationStore)
+
+        public MainUserVM(ICurrentAccountService currentAccount, NavigationStore mainNavigationStore,  IAccountDataService accountDataService, IDataService<Book> bookDataService)
         {
             _currentAccount = currentAccount;
             _mainNavigationStore = mainNavigationStore;
+            _accountDataService = accountDataService;
+            _bookDataService = bookDataService;
             _localNavigationStore = new NavigationStore();
-            _localNavigationStore.CurrentViewModel = new HomeVM(_currentAccount);
+            _localNavigationStore.CurrentViewModel = new HomeVM(_currentAccount, _bookDataService,_accountDataService);
             _localNavigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
         }
 
@@ -39,7 +44,7 @@ namespace Project.ViewModels
         {
             get
             {
-                return new NavigationCommand<HomeVM>(new NavigationService<HomeVM>(_localNavigationStore, () => new HomeVM(_currentAccount)));
+                return new NavigationCommand<HomeVM>(new NavigationService<HomeVM>(_localNavigationStore, () => new HomeVM(_currentAccount,_bookDataService, _accountDataService)));
             }
         }
         public ICommand openProfile
@@ -53,14 +58,14 @@ namespace Project.ViewModels
         {
             get
             {
-                return new NavigationCommand<HistoryVM>(new NavigationService<HistoryVM>(_localNavigationStore, () => new HistoryVM(_currentAccount)));
+                return new NavigationCommand<HistoryVM>(new NavigationService<HistoryVM>(_localNavigationStore, () => new HistoryVM(_currentAccount,_bookDataService, _accountDataService)));
             }
         }
         public ICommand openFavourites
         {
             get
             {
-                return new NavigationCommand<FavouritesVM>(new NavigationService<FavouritesVM>(_localNavigationStore, () => new FavouritesVM(_currentAccount)));
+                return new NavigationCommand<FavouritesVM>(new NavigationService<FavouritesVM>(_localNavigationStore, () => new FavouritesVM(_currentAccount,_bookDataService,_accountDataService)));
             }
         }
         public ICommand openAbout

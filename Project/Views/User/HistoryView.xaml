@@ -7,6 +7,84 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFEDCD2A"/>
+                    <GradientStop Color="#FF978948" Offset="1"/>
+                    <GradientStop Color="#FFBEAB4A" Offset="0.494"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Grid.Row="0" Style="{StaticResource BaseText}"   HorizontalAlignment="Center" FontSize="26">Active or Old Transactions</TextBlock>
+
+            <TextBlock Grid.Column="1" Style="{StaticResource BaseText}"   HorizontalAlignment="Center" FontSize="26">Requested books</TextBlock>
+        </Grid>
+
+
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+
+            </Grid.ColumnDefinitions>
+            <ListView  Background="Green" MaxHeight="400"
+                  ScrollViewer.CanContentScroll="True" 
+                  ScrollViewer.VerticalScrollBarVisibility="Visible"
+                  
+                  x:Name="listviewUsers" 
+                  Margin="10"  
+                  HorizontalAlignment="Left"  
+                  FontFamily="Book Antiqua" FontSize="16" FontWeight="Normal"
+                  IsSynchronizedWithCurrentItem="False" 
+                   Width="450"  ItemsSource="{Binding ActiveTransactions}">
+
+                <ListView.View>
+                    <GridView AllowsColumnReorder="true">
+                        <GridViewColumn DisplayMemberBinding="{Binding Book.Title}" 
+                      Header="Name" Width="150"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Book.Author.Surname}" 
+                      Header="Author" Width="150"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding DateFormatBegin}" 
+                      Header="Begin" Width="130" ></GridViewColumn>
+
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            <ListView
+                  ScrollViewer.CanContentScroll="True" 
+                  ScrollViewer.VerticalScrollBarVisibility="Visible"
+                  MaxHeight="400"
+                  Grid.Column="1"
+                  Margin="10 "  
+                  HorizontalAlignment="Left"  
+                  FontFamily="Book Antiqua" FontSize="16" FontWeight="Normal"
+                  IsSynchronizedWithCurrentItem="False" 
+                   Width="450" ItemsSource="{Binding NotActiveTransactions}">
+                <ListView.View >
+
+                    <GridView  AllowsColumnReorder="true">
+                        <GridViewColumn  DisplayMemberBinding="{Binding Book.Title}" 
+                      Header="Name" Width="150"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Book.Author.Surname}" 
+                      Header="Author" Width="150"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding DateFormatBegin}" 
+                      Header="Begin" Width="130" ></GridViewColumn>
+
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
     </Grid>
 </UserControl>

@@ -8,17 +8,21 @@ namespace Models.Models
 {
     public class Author : DefaultClass 
     {
-       
+
+        private string _name;
+        private string _surname;
+        private string _firstname;
+        private string _description;
 
         public string? Name
         {
             get
             {
-                return Name;
+                return _name;
             }
             set
             {
-                Name = value;
+                _name = value;
                 OnPropertyChanged();
             }
         }
@@ -26,13 +30,13 @@ namespace Models.Models
         {
             get
             {
-                if (Surname == null)
+                if (_surname == null)
                     return "";
-                return Surname;
+                return _surname;
             }
             set
             {
-                Surname = value;
+                _surname = value;
                 OnPropertyChanged();
             }
         }
@@ -40,13 +44,13 @@ namespace Models.Models
         {
             get
             {
-                if (Firstname == null)
+                if (_firstname == null)
                     return "";
-                return Firstname;
+                return _firstname;
             }
             set
             {
-                Firstname = value;
+                _firstname = value;
                 OnPropertyChanged();
             }
         }
@@ -54,13 +58,13 @@ namespace Models.Models
         {
             get
             {
-                if (Description == null)
+                if (_description == null)
                     return "";
-                return Description;
+                return _description;
             }
             set
             {
-                Description = value;
+                _description = value;
                 OnPropertyChanged();
             }
         }

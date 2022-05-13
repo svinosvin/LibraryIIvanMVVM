@@ -17,51 +17,6 @@ namespace DataContext.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.4");
 
-            modelBuilder.Entity("BookRating", b =>
-                {
-                    b.Property<int>("BooksId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("RatingsId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("BooksId", "RatingsId");
-
-                    b.HasIndex("RatingsId");
-
-                    b.ToTable("BookRating");
-                });
-
-            modelBuilder.Entity("BookReviews", b =>
-                {
-                    b.Property<int>("BooksId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("ReviewsId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("BooksId", "ReviewsId");
-
-                    b.HasIndex("ReviewsId");
-
-                    b.ToTable("BookReviews");
-                });
-
-            modelBuilder.Entity("FavouriteUser", b =>
-                {
-                    b.Property<int>("FavouritesId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("UsersId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("FavouritesId", "UsersId");
-
-                    b.HasIndex("UsersId");
-
-                    b.ToTable("FavouriteUser");
-                });
-
             modelBuilder.Entity("Models.Models.Author", b =>
                 {
                     b.Property<int>("Id")
@@ -125,17 +80,25 @@ namespace DataContext.Migrations
                     b.Property<int>("BookId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("Id");
 
                     b.HasIndex("BookId");
 
-                    b.ToTable("Favourite");
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Favourites");
                 });
 
             modelBuilder.Entity("Models.Models.HistoryTransactions", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("Accept")
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("Begin")
@@ -196,10 +159,15 @@ namespace DataContext.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<int?>("BookId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("Rate")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("BookId");
 
                     b.ToTable("Ratings");
                 });
@@ -210,6 +178,9 @@ namespace DataContext.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("BookId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Text")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -218,6 +189,8 @@ namespace DataContext.Migrations
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("BookId");
 
                     b.HasIndex("UserId");
 
@@ -273,51 +246,6 @@ namespace DataContext.Migrations
                     b.ToTable("Workers");
                 });
 
-            modelBuilder.Entity("BookRating", b =>
-                {
-                    b.HasOne("Models.Models.Book", null)
-                        .WithMany()
-                        .HasForeignKey("BooksId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Models.Models.Rating", null)
-                        .WithMany()
-                        .HasForeignKey("RatingsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("BookReviews", b =>
-                {
-                    b.HasOne("Models.Models.Book", null)
-                        .WithMany()
-                        .HasForeignKey("BooksId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Models.Models.Reviews", null)
-                        .WithMany()
-                        .HasForeignKey("ReviewsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("FavouriteUser", b =>
-                {
-                    b.HasOne("Models.Models.Favourite", null)
-                        .WithMany()
-                        .HasForeignKey("FavouritesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Models.Models.User", null)
-                        .WithMany()
-                        .HasForeignKey("UsersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("Models.Models.Book", b =>
                 {
                     b.HasOne("Models.Models.Author", "Author")
@@ -330,18 +258,26 @@ namespace DataContext.Migrations
             modelBuilder.Entity("Models.Models.Favourite", b =>
                 {
                     b.HasOne("Models.Models.Book", "Book")
-                        .WithMany()
+                        .WithMany("Favourites")
                         .HasForeignKey("BookId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Models.Models.User", "User")
+                        .WithMany("Favourites")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Book");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Models.Models.HistoryTransactions", b =>
                 {
                     b.HasOne("Models.Models.Book", "Book")
-                        .WithMany()
+                        .WithMany("Histories")
                         .HasForeignKey("BookId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -357,13 +293,30 @@ namespace DataContext.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("Models.Models.Rating", b =>
+                {
+                    b.HasOne("Models.Models.Book", "Book")
+                        .WithMany("Ratings")
+                        .HasForeignKey("BookId");
+
+                    b.Navigation("Book");
+                });
+
             modelBuilder.Entity("Models.Models.Reviews", b =>
                 {
+                    b.HasOne("Models.Models.Book", "Book")
+                        .WithMany("Reviews")
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Models.Models.User", "User")
-                        .WithMany()
+                        .WithMany("Reviews")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Book");
 
                     b.Navigation("User");
                 });
@@ -395,9 +348,24 @@ namespace DataContext.Migrations
                     b.Navigation("Books");
                 });
 
+            modelBuilder.Entity("Models.Models.Book", b =>
+                {
+                    b.Navigation("Favourites");
+
+                    b.Navigation("Histories");
+
+                    b.Navigation("Ratings");
+
+                    b.Navigation("Reviews");
+                });
+
             modelBuilder.Entity("Models.Models.User", b =>
                 {
+                    b.Navigation("Favourites");
+
                     b.Navigation("Histories");
+
+                    b.Navigation("Reviews");
                 });
 #pragma warning restore 612, 618
         }

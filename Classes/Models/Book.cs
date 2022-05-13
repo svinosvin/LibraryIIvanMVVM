@@ -14,8 +14,7 @@ namespace Models.Models
         Mystery,
         Fantasy,
         Historical_Fiction,
-        Horror,
-        Literary_Fiction,
+        Horror
 
     }
 
@@ -35,8 +34,7 @@ namespace Models.Models
         {
             get
             {
-                if (_image == null)
-                    return "";
+                
                 return _image;
             }
             set
@@ -80,7 +78,7 @@ namespace Models.Models
             {
                 if (_author == null)
                     _author = new Author();
-                return Author;
+                return _author;
             }
             set
             {
@@ -103,9 +101,10 @@ namespace Models.Models
         }
 
 
-
+        public ICollection<HistoryTransactions>? Histories { get; set; } = new List<HistoryTransactions>();
         public ICollection<Reviews>? Reviews { get; set; }
         public ICollection<Rating>? Ratings { get; set; }
+        public ICollection<Favourite>? Favourites { get; set; } = new List<Favourite>();
 
 
         //public string AvgRating()
