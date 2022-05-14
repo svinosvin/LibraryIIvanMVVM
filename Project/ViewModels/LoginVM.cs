@@ -1,6 +1,7 @@
 ﻿using Project.Base;
 using Project.Commands;
 using Project.Commands.Helpers;
+using Project.RegExp;
 using Project.Services;
 using Project.Services.AccountService;
 using Project.Stores;
@@ -9,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 
@@ -86,9 +88,17 @@ namespace Project.ViewModels
         {
             get
             {
-                return new RelayCommand((x) =>
+                return new RelayCommand(async (x) =>
                 {
-                    (_currentAccount.GetAuthorizeCommand(_navigationStore)).Execute(x);
+                    if(await LogAcc())
+                    {
+                        (_currentAccount.GetAuthorizeCommand(_navigationStore)).Execute(x);
+
+                    }
+                    else
+                    {
+                       
+                    }
                 }
                 );
 
@@ -105,9 +115,40 @@ namespace Project.ViewModels
 
         //    }
         //}
-        private void LoginApp(string pass, string password)
+        public async Task<bool> LogAcc()
         {
-                               
+            if (Password != RepeatPassword)
+            {
+                MessageBox.Show("Пароли не совпадают!");
+                return false;
+            }
+            if (!RegExpCheck.CheckLogin(Username)) return false;
+            if (!RegExpCheck.CheckPassword(Password)) return false;
+         
+
+
+            if (!await _currentAccount.Login(Username,Password,RepeatPassword,_isAdmin))
+            {
+                MessageBox.Show("Такого аккаунта не существует попробуйте снова");
+                return false;
+            }
+
+            return true;
+        }
+        public void refresh()
+        {
+            Username = "";
+            Password = "";
+            RepeatPassword = "";
+            
+            OnPropertyChanged(nameof(Username));
+            OnPropertyChanged(nameof(Password));
+            
+            OnPropertyChanged(nameof(RepeatPassword));
+            
+
+
+
         }
 
     }

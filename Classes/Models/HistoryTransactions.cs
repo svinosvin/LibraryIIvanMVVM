@@ -78,7 +78,7 @@ namespace Models.Models
             }
         }
         public string DateFormatBegin { get => Begin.ToString(" dd/MM/yyyy"); }
-        public string DateFormatEnd { get => Begin.ToString(" dd/MM/yyyy"); }
+        public string DateFormatEnd { get => End.ToString(" dd/MM/yyyy"); }
 
     }
 }

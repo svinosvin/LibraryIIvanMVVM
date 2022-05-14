@@ -9,7 +9,9 @@ using Project.Services.Generic;
 using Project.Stores;
 using Project.ViewModels;
 using Project.Views;
+using Project.Windows;
 using System;
+using System.Threading.Tasks;
 using System.Windows;
 
 namespace Project
@@ -26,11 +28,16 @@ namespace Project
         }
         protected override void OnStartup(StartupEventArgs e)
         {
-            
-            
+
+            Preloader w = new Preloader();
+            w.Show();
+            Task.Delay(3000).Wait();
+           
             MainWindow = _serviceProvider.GetRequiredService<MainWindow>();
             MainWindow.Show();
-            base.OnStartup(e);  
+            base.OnStartup(e);
+            w.Close();
+
         }
 
         private IServiceProvider createServiceProvider()

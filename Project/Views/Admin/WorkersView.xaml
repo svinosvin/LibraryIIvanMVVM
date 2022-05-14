@@ -25,12 +25,13 @@
             </DockPanel.Background>
 
             <TextBlock Grid.Column="0" Grid.Row="0" Style="{StaticResource BaseText}"  VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="26">Workers</TextBlock>
-            <Button Command="{Binding ChangeUserData}"   Content="Добавить" IsDefault="True"  Background="#05B790" Foreground="#ffffff" FontSize="16"  Width="100" Margin="20" />
-            <Button HorizontalAlignment="Right"  VerticalAlignment="Top" Command="{Binding ChangeUserData}"     Content="Обновить" IsDefault="True"  Background="#05B790" Foreground="#ffffff" FontSize="16"  Width="120" Margin="20" />
+            <Button Command="{Binding AddWorker}"   Content="Добавить"  Background="#05B790" Foreground="#ffffff" FontSize="16"  Margin="20" />
+            <Button Command="{Binding DeleteWorker}"   Content="Удалить"   Background="#05B790" Foreground="#ffffff" FontSize="16"  Margin="20" />
+            <Button HorizontalAlignment="Right"  VerticalAlignment="Top" Command="{Binding Update}"     Content="Обновить" IsDefault="True"  Background="#05B790" Foreground="#ffffff" FontSize="16"  Width="120" Margin="20" />
 
 
         </DockPanel>
-        <ListView
+        <ListView SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
                   ScrollViewer.CanContentScroll="True" 
                   ScrollViewer.VerticalScrollBarVisibility="Visible"
                   MaxHeight="400"
@@ -39,20 +40,20 @@
                   HorizontalAlignment="Left"  
                   FontFamily="Book Antiqua" FontSize="16" FontWeight="Normal"
                   IsSynchronizedWithCurrentItem="False" 
-                   Width="950" ItemsSource="{Binding AllFavourites}">
+                   Width="950" ItemsSource="{Binding Workers}">
             <ListView.View >
 
                 <GridView  AllowsColumnReorder="true">
-                    <GridViewColumn  DisplayMemberBinding="{Binding Worker.Title}" 
-                      Header="Book's Title" Width="120"/>
-                    <GridViewColumn  DisplayMemberBinding="{Binding Worker.Title}" 
-                      Header="Book's Title" Width="120"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding Book.Author.Name}" 
-                      Header="Author's Name" Width="120"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding Book.Author.Surname}" 
-                          Header="Author's Surname" Width="120"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding Book.Author.Firstname}" 
-                          Header="Author's Firstname" Width="200"/>
+                    <GridViewColumn  DisplayMemberBinding="{Binding Login}" 
+                      Header="Username" Width="150"/>
+                    <GridViewColumn  DisplayMemberBinding="{Binding Person.Name}" 
+                      Header="Имя" Width="150"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Person.Surname}" 
+                      Header="Surname" Width="150"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Person.Email}" 
+                          Header="Email" Width="150"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Person.TelNumber}" 
+                          Header="Telnumber" Width="200"/>
 
 
                 </GridView>

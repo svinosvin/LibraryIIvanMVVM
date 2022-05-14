@@ -95,7 +95,7 @@ namespace Project.ViewModels.AdminVm
             _currentAccount = currentAccount;
             _bookDataService = bookDataService;
             
-            _currentAccount.Login("admin1", "123456", "123456", true);
+          
             FullBooks();
         }
         public async Task<bool> FullBooks()

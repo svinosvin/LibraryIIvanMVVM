@@ -8,7 +8,8 @@
         
        xmlns:system="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="Добавление пользователя" Height="500" Width="400" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Добавление пользователя" Height="550" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
+        KeyDown="Window_KeyDown">
     <Grid>
 
         <Grid.RowDefinitions>
@@ -24,30 +25,33 @@
             <TextBox Text="{Binding Username}" BorderThickness="0 0 0 1.5" 
                                  BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-20"
                                  FontSize="16" materialDesign:HintAssist.Hint="Username"
-                                 Margin="0 20 0 30" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                 Margin="0 20 0 10" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
 
             <components:BindablePasswordBox ToolTip="Пароль должен быть от 4 символов!" Password="{Binding Password}"
                                                          BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" 
                                                          materialDesign:HintAssist.FloatingOffset="0,-18"
                                                          FontSize="16" materialDesign:HintAssist.Hint="Password" 
-                                                         Margin="0 20 0 30"  />
+                                                         Margin="0 20 0 10"  />
             <components:BindablePasswordBox ToolTip="Пароль должен быть от 4 символов!"
                                                         Password="{Binding RepPassword}"
                                                         BorderThickness="0 0 0 1.5" 
                                                         BorderBrush="#C5C8CC"
                                                         materialDesign:HintAssist.FloatingOffset="0,-18" FontSize="16" 
                                                         materialDesign:HintAssist.Hint="Repeat Password" 
-                                                        Margin="0 20 0 50"/>
+                                                        Margin="0 20 0 10"/>
             <TextBox Text="{Binding Email}" BorderThickness="0 0 0 1.5" ToolTip="Пример:email@bk.ru"
                                  BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-20"
                                  FontSize="16" materialDesign:HintAssist.Hint="Email"
-                                 Margin="0 20 0 30" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                 Margin="0 20 0 10" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
             <TextBox Text="{Binding TelNumber}" BorderThickness="0 0 0 1.5" ToolTip="Пример:+375255555555"
                                  BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-20"
                                  FontSize="16" materialDesign:HintAssist.Hint="Telnumber"
-                                 Margin="0 20 0 30" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-
-            <Button Command="{Binding AddAWorker}"  Grid.Row="1" Content="Добавить" IsDefault="True" materialDesign:ButtonAssist.CornerRadius="5" Background="#05B790" Foreground="#ffffff" FontSize="16" Height="45" Width="120" Margin="20" Click="Button_Click" />
+                                 Margin="0 20 0 10" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+            <ComboBox  SelectedIndex="{Binding TypeWorker, Mode=TwoWay}" FontSize="{StaticResource Regular}"  Margin="10 20 10 10">
+                <system:String>Admin</system:String>
+                <system:String>Worker</system:String>
+            </ComboBox>
+            <Button IsDefault="True" Command="{Binding AddWorker}"  Content="Добавить"  materialDesign:ButtonAssist.CornerRadius="5" Background="#05B790" Foreground="#ffffff" FontSize="16" Height="45" Width="120" Margin="20"  />
 
 
         </StackPanel>

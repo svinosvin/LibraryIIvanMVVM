@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,6 +29,12 @@ namespace Project.Views
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            ContextItem s = new ContextItem();
+            s.Show();
         }
     }
 }

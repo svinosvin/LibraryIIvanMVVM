@@ -7,6 +7,22 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <TextBlock>About</TextBlock>
+        <Border Background="#FF0E584F">
+            <Grid>
+                <Grid.RowDefinitions >
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                   
+
+                </Grid.RowDefinitions>
+
+
+                <TextBlock Grid.Row="0" TextAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap"  FontSize="32" Foreground="White" >Приложение было разработа в 2022 году, Разработчик: Иванец А.Р.</TextBlock>
+
+                <TextBlock Grid.Row="1"  TextAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap"  FontSize="32" Foreground="White" > Обратиться за помощью: Email - artemivanets@bk.ru</TextBlock>
+
+
+            </Grid>
+        </Border>
     </Grid>
 </UserControl>

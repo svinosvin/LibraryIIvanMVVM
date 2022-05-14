@@ -36,8 +36,10 @@
 
                     <TextBlock Grid.Row="1" FontSize="34">Admin</TextBlock>
                 <RadioButton Grid.Row="2" Content="Books" IsChecked="True"  Command="{Binding openBooks}" />
-                <RadioButton Grid.Row="3" Content="Workers"  Command="{Binding openWorkers}" />
-                <RadioButton Grid.Row="4" Content="Profile"  Command="{Binding openProfile}"/>
+                <RadioButton Grid.Row="3" Content="Workers"  Command="{Binding openWorkers}" >
+                    
+                </RadioButton>
+                <!--<RadioButton Grid.Row="4" Content="Profile"  Command="{Binding openProfile}"/>-->
                 <RadioButton Grid.Row="5" Content="Users"  Command="{Binding openUsers}" />
                 <RadioButton Grid.Row="6" Content="Exit"  Command="{Binding ExitAccount}" />
 
@@ -47,6 +49,8 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+
             </Grid.RowDefinitions>
 
             <TextBlock Background="{StaticResource BrushPrimary3}" Grid.Row="0" FontSize="34">Library</TextBlock>
@@ -70,6 +74,12 @@
 
                 </ContentControl.Resources>
             </ContentControl>
+            <StatusBar Grid.Row="2">
+                <StatusBarItem>
+                    <TextBlock>Admin menu</TextBlock>
+                </StatusBarItem>
+            </StatusBar>
+
         </Grid>
        
     </Grid>

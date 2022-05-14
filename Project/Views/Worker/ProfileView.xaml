@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Project.Views.Worker"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="400"
-                 xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:components="clr-namespace:Project.Components"
+            xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:components="clr-namespace:Project.Components"
              >
     <Grid>
         <Grid.ColumnDefinitions>

@@ -25,7 +25,7 @@ namespace Project.ViewModels
             _accountDataService = accountDataService;
             _bookDataService = bookDataService;
             _workerDataService = workerDataService;
-             navigationStore.CurrentViewModel = new MainAdmVM(_currentAccount, _navigationStore, _accountDataService,_bookDataService,_workerDataService);
+             navigationStore.CurrentViewModel = new LoginVM(_currentAccount,_navigationStore);
             _navigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
         }
 

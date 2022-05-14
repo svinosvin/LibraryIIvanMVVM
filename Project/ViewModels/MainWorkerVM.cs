@@ -52,7 +52,7 @@ namespace Project.ViewModels
                 return new NavigationCommand<ProfileVM>(new NavigationService<ProfileVM>(_localNavigationStore, () => new ProfileVM(_currentAccount)));
             }
         }
-        public ICommand openAbout
+        public ICommand openRequest
         {
             get
             {

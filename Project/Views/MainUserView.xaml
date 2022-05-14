@@ -44,7 +44,17 @@
                 <RadioButton Grid.Column="1" Content="History"  Command="{Binding openHistory}"/>
                 <RadioButton Grid.Column="2" Content="Profile" Command="{Binding openProfile}"/>
                 <RadioButton Grid.Column="3" Content="Favourites" Command="{Binding openFavourites}"/>
-                <RadioButton Grid.Column="4" Content="About" HorizontalAlignment="Right" Command="{Binding openAbout}"/>
+                <RadioButton Grid.Column="4" Content="About" HorizontalAlignment="Right" Command="{Binding openAbout}">
+
+                    <RadioButton.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Справка" Click="MenuItem_Click" />
+                            </ContextMenu>
+                    </RadioButton.ContextMenu>
+                    
+
+                </RadioButton>
+                
                 <RadioButton Grid.Column="5" Content="Sign out" HorizontalAlignment="Right" Command="{Binding ExitAccount}"/>
             </Grid>
         </Grid>

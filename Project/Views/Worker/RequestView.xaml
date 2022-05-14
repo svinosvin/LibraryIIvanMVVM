@@ -7,6 +7,143 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFEDCD2A"/>
+                    <GradientStop Color="#FF978948" Offset="1"/>
+                    <GradientStop Color="#FFBEAB4A" Offset="0.494"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+
+            </Grid.ColumnDefinitions>
+            <DockPanel Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" >
+                <TextBlock Style="{StaticResource BaseText}" FontSize="26" Width="470">Active Transactions</TextBlock>
+                <Button Command="{Binding Accept}" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Width="174" >Принять</Button>
+                <Button Command="{Binding Cancel}" Style="{StaticResource MaterialDesignFlatAccentBgButton}" Background="Red" >Отклонить</Button>
+
+
+            </DockPanel>
+
+        </Grid>
+
+
+
+        <Grid Grid.Row="1" Grid.Column="0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="400*"/>
+                <ColumnDefinition Width="69*"/>
+                <ColumnDefinition Width="331*"/>
+
+            </Grid.ColumnDefinitions>
+            <ListView SelectedItem="{Binding Transaction}" Grid.ColumnSpan="3" Background="Green" MaxHeight="400"
+                  ScrollViewer.CanContentScroll="True" 
+                  ScrollViewer.VerticalScrollBarVisibility="Visible"
+                  
+                  x:Name="listviewUsers" 
+                  Margin="10,10,0,10"  
+                  HorizontalAlignment="Left"  
+                  FontFamily="Book Antiqua" FontSize="16" FontWeight="Normal"
+                  IsSynchronizedWithCurrentItem="False" 
+                   Width="820"  ItemsSource="{Binding Histories}">
+
+                <ListView.View>
+                    <GridView AllowsColumnReorder="true">
+                        <GridViewColumn DisplayMemberBinding="{Binding User.Login}" 
+                      Header="Username" Width="150"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Book.Title}" 
+                      Header="Book's Title" Width="200"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Book.Author.Surname}" 
+                      Header="Author" Width="100"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding DateFormatBegin}" 
+                      Header="StartTrans" Width="150"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding DateFormatEnd}" 
+                      Header="EndTrans" Width="140" ></GridViewColumn>
+
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+
+        </Grid>
+        <StackPanel Margin="0 10"  Grid.Row="4"  VerticalAlignment="Center"   Height="Auto">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Button Command="{Binding Print}"  Padding="5"
+                        Grid.Column="0"
+                         FontSize="15px" 
+                         Width="Auto"
+                         Background="#FF0A7897"
+                         Foreground="White" 
+                         FontFamily="Arial"
+                         FontWeight="Bold">
+                    Вывести на печать
+                </Button>
+
+                <Button Command="{Binding Xml}"
+                        Padding="5"
+                        Grid.Column="4"
+                         FontSize="16px" 
+                         Width="Auto"
+                         Background="#FF0A7897"
+                         Foreground="White" 
+                         FontFamily="Arial"
+                         FontWeight="Bold">
+                    XML
+                </Button>
+                <Button Command="{Binding Word}"
+                        Padding="5"
+                        Grid.Column="2"
+                         FontSize="16px" 
+                         Width="Auto"
+                         Background="#FF0A7897"
+                         Foreground="White" 
+                         FontFamily="Arial"
+                         FontWeight="Bold">
+                    Word
+                </Button>
+                <Button Command="{Binding Txt}"
+                        Padding="5"
+                        Grid.Column="3"
+                         FontSize="16px" 
+                         Width="Auto"
+                         Background="#FF0A7897"
+                         Foreground="White" 
+                         FontFamily="Arial"
+                         FontWeight="Bold">
+                    TxT
+                </Button>
+                <Button  Command="{Binding Excel}" 
+                        Padding="5"
+                         Grid.Column="1"
+                         FontSize="16px" 
+                         Width="Auto"
+                         Background="#FF0A7897"
+                         Foreground="White" 
+                         FontFamily="Arial"
+                         FontWeight="Bold">
+                    Excel
+                </Button>
+
+            </Grid>
+
+        </StackPanel>
     </Grid>
 </UserControl>

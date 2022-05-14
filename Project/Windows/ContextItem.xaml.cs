@@ -1,5 +1,4 @@
-﻿using Project.Services.AccountService;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,14 +15,11 @@ using System.Windows.Shapes;
 namespace Project.Windows
 {
     /// <summary>
-    /// Логика взаимодействия для WindowAddUser.xaml
+    /// Логика взаимодействия для ContextItem.xaml
     /// </summary>
-    public partial class WindowAddUser : Window
+    public partial class ContextItem : Window
     {
-        private readonly ICurrentAccountService _currentAccount;
-
-
-        public WindowAddUser()
+        public ContextItem()
         {
             InitializeComponent();
         }
@@ -33,13 +29,6 @@ namespace Project.Windows
             {
                 this.Close();
             }
-        }
-        public WindowAddUser(ICurrentAccountService currentAccount)
-        {
-            InitializeComponent();
-            this._currentAccount = currentAccount;
-            DataContext = new CreateNewWorkerVM(_currentAccount);
-
         }
     }
 }

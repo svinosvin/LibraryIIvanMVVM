@@ -57,7 +57,7 @@ namespace Project.ViewModels
         {
             get
             {
-                return new NavigationCommand<UsersVM>(new NavigationService<UsersVM>(_localNavigationStore, () => new UsersVM(_currentAccount)));
+                return new NavigationCommand<UsersVM>(new NavigationService<UsersVM>(_localNavigationStore, () => new UsersVM(_currentAccount,_accountDataService)));
             }
         }
         public ICommand openWorkers

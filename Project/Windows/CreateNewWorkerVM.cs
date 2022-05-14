@@ -18,35 +18,36 @@ namespace Project.Windows
 {
     public class CreateNewWorkerVM : ViewModel
     {
-        private readonly ICurrentAccountService currentAccount;
-        public int TypeWorker { get; set; }
+        private readonly ICurrentAccountService _currentAccount;
+        public int TypeWorker { get; set; } = 0;
 
         public List<string> Elements { get; set; } = new List<string> { "Админ", "Библиотекарь" };
 
-        public string Username { get; set; }
+        public string Username { get; set; } = "";
 
-        public string Password { get; set; }
+        public string Password { get; set; } = "";
 
-        public string RepPassword { get; set; }
+        public string RepPassword { get; set; } = "";
 
-        public string Email { get; set; }
+        public string Email { get; set; } = "";
 
-        public string TelNumber { get; set; }
+        public string TelNumber { get; set; } = "";
         private AppDbContextFactory dbcontex;
 
         public CreateNewWorkerVM(ICurrentAccountService currentAccount)
         {
             dbcontex = new AppDbContextFactory();
+            _currentAccount = currentAccount;
         }
 
-        public ICommand AddAWorker
+        public ICommand AddWorker
         {
             get
             {
                 return new RelayCommand(async (x) =>
                 {
-                    if (await CreateWorker())
-                        MessageBox.Show("Аккаунт создан!");
+                    if (await CreateWorker()) MessageBox.Show("Успешно добавлен!");
+                    refresh();
 
                 });
             }
@@ -59,6 +60,7 @@ namespace Project.Windows
             if (Password != RepPassword)
             {
                 MessageBox.Show("Пароли не совпадают!");
+                return false;
             }
             if (!RegExpCheck.CheckLogin(Username)) return false;
             if (!RegExpCheck.CheckPassword(Password)) return false;
@@ -71,13 +73,29 @@ namespace Project.Windows
                 acc = AccountsVariation.Worker;
 
 
-            if (await currentAccount.Register(Username, Password, RepPassword, Email, TelNumber, acc) != RegisterResult.Succes)
+            if (await _currentAccount.Register(Username, Password, RepPassword, Email, TelNumber, acc) != RegisterResult.Succes)
             {
                 MessageBox.Show("Аккаунт с такими данными существует");
                 return false;
             }
 
             return true;
+        }
+        public void refresh()
+        {
+            Username = "";
+            Password = "";
+            Email = "";
+            RepPassword = "";
+            TelNumber = "";
+            OnPropertyChanged(nameof(Username));
+            OnPropertyChanged(nameof(Password));
+            OnPropertyChanged(nameof(Email));
+            OnPropertyChanged(nameof(RepPassword));
+            OnPropertyChanged(nameof(TelNumber));
+
+
+
         }
     } 
 }

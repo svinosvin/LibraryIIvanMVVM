@@ -10,24 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Project.Views
+namespace Project.Windows
 {
     /// <summary>
-    /// Логика взаимодействия для MainWorkerView.xaml
+    /// Логика взаимодействия для Preloader.xaml
     /// </summary>
-    public partial class MainWorkerView : UserControl
+    public partial class Preloader : Window
     {
-        public MainWorkerView()
+        public Preloader()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
         }
     }
 }

@@ -125,7 +125,7 @@
                                                         Margin="0 40 0 50" ToolTip="Пароль должен быть от 4 символов!"/>
 
                         <StackPanel Orientation="Horizontal">
-                            <Button Content="Sign up" IsDefault="True" Background="#05B790" Foreground="#ffffff" FontSize="18" materialDesign:ButtonAssist.CornerRadius="22" Height="45" Width="120"/>
+                            <Button Content="Sign up" Command="{Binding Register}" IsDefault="True" Background="#05B790" Foreground="#ffffff" FontSize="18" materialDesign:ButtonAssist.CornerRadius="22" Height="45" Width="120"/>
                             <Button Content="to Login"  Command="{Binding toLogin}" materialDesign:ButtonAssist.CornerRadius="22" FontSize="16" Height="45" Width="120" Margin="5 0 0 0" Style="{StaticResource MaterialDesignFlatButton}"/>
                         </StackPanel>
                     </StackPanel>

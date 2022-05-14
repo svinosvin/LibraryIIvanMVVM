@@ -14,21 +14,15 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        
-        <Grid Grid.Column="0">
-            <Grid.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FFCF2525"/>
-                    <GradientStop Color="#FF3D0909" Offset="1"/>
-                    <GradientStop Color="#FF510707" Offset="0.474"/>
-                </LinearGradientBrush>
-            </Grid.Background>
+
+        <Grid Grid.Column="0" Background="#FFB59292">
+
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="0"  VerticalAlignment="Top"  Margin="10 0">
-               
+
                 <TextBox Text="{Binding Username}" BorderThickness="0 0 0 1.5" 
                                  BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-20"
                                  FontSize="16" materialDesign:HintAssist.Hint="Username"
@@ -46,14 +40,14 @@
                                                         materialDesign:HintAssist.FloatingOffset="0,-18" FontSize="16" 
                                                         materialDesign:HintAssist.Hint="New Password" 
                                                         Margin="0 20 0 50"/>
-                <Button Command="{Binding ChangeUserPassword}"  Grid.Row="1" Content="Sign up" IsDefault="True" materialDesign:ButtonAssist.CornerRadius="5" Background="#05B790" Foreground="#ffffff" FontSize="16" Height="45" Width="120" Margin="20" />
+                <Button Command="{Binding ChangeUserPassword}"  Grid.Row="1" Content="Change password" IsDefault="True" materialDesign:ButtonAssist.CornerRadius="5" Background="#05B790" Foreground="#ffffff" FontSize="16" Height="45"  Margin="20" />
 
 
             </StackPanel>
         </Grid>
 
         <Grid  Grid.Column="1" Grid.ColumnSpan="2">
-          
+
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -79,8 +73,8 @@
 
 
             </StackPanel>
-            
-             <StackPanel  Grid.Row="0" Grid.Column="1" VerticalAlignment="Top"  Margin="10 0">
+
+            <StackPanel  Grid.Row="0" Grid.Column="1" VerticalAlignment="Top"  Margin="10 0">
                 <TextBox Text="{Binding Email}" BorderThickness="0 0 0 1.5" ToolTip="Пример:email@bk.ru"
                                  BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-20"
                                  FontSize="16" materialDesign:HintAssist.Hint="Email"
@@ -89,13 +83,13 @@
                                  BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-20"
                                  FontSize="16" materialDesign:HintAssist.Hint="Telnumber"
                                  Margin="0 20 0 50" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-              
+
 
             </StackPanel>
 
-            <Button  Command="{Binding ChangeUserData}"  Grid.Row="1" Grid.Column="1"  Content="Sign up" IsDefault="True" materialDesign:ButtonAssist.CornerRadius="5" Background="#05B790" Foreground="#ffffff" FontSize="16" Height="45" Width="120" Margin="20" />
-           
+            <Button  Command="{Binding ChangeUserData}"  Grid.Row="1" Grid.Column="1"  Content="Change UserData" IsDefault="True" materialDesign:ButtonAssist.CornerRadius="5" Background="#05B790" Foreground="#ffffff" FontSize="16" Height="45"  Margin="20" />
+
         </Grid>
     </Grid>
-        
+
 </UserControl>

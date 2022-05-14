@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:Project.Windows"
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="WindowCreateBook" Height="450" Width="400" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="WindowCreateBook" Height="450" Width="400" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
+         KeyDown="Window_KeyDown">
     <Grid>
        
             <Grid.RowDefinitions>

@@ -5,8 +5,56 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Project.Views.Admin"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+                   d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+
+
+
+        <DockPanel  Grid.Row="0" VerticalAlignment="Center">
+            <DockPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF5C7289"/>
+                    <GradientStop Color="#FF726A6A" Offset="1"/>
+                    <GradientStop Color="#FF99ADD9" Offset="0.462"/>
+                </LinearGradientBrush>
+            </DockPanel.Background>
+
+            <TextBlock Grid.Column="0" Grid.Row="0" Style="{StaticResource BaseText}"  VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="26">Users</TextBlock>
+           
+
+        </DockPanel>
+        <ListView
+                  ScrollViewer.CanContentScroll="True" 
+                  ScrollViewer.VerticalScrollBarVisibility="Visible"
+                  MaxHeight="400"
+                  Grid.Row="1"
+                  Margin="5 "  
+                  HorizontalAlignment="Left"  
+                  FontFamily="Book Antiqua" FontSize="16" FontWeight="Normal"
+                  IsSynchronizedWithCurrentItem="False" 
+                   Width="950" ItemsSource="{Binding Users}">
+            <ListView.View >
+
+                <GridView  AllowsColumnReorder="true">
+                    <GridViewColumn  DisplayMemberBinding="{Binding Login}" 
+                      Header="Username" Width="150"/>
+                    <GridViewColumn  DisplayMemberBinding="{Binding Person.Name}" 
+                      Header="Имя" Width="150"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Person.Surname}" 
+                      Header="Surname" Width="150"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Person.Email}" 
+                          Header="Email" Width="150"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Person.TelNumber}" 
+                          Header="Telnumber" Width="200"/>
+
+
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </UserControl>

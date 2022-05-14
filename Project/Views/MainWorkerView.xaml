@@ -4,9 +4,76 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Project.Views"
+              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:components="clr-namespace:Project.Components"
+             xmlns:vm ="clr-namespace:Project.ViewModels.WorkerVm"
+             xmlns:v="clr-namespace:Project.Views.Worker"
              mc:Ignorable="d" 
+                
              d:DesignHeight="450" d:DesignWidth="800">
+
     <Grid>
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0" Background="{StaticResource BrushPrimary3}">
+
+            <Grid RenderOptions.EdgeMode="Aliased">
+                <Grid.Resources >
+                    <Style TargetType="RadioButton" BasedOn="{StaticResource AdminNavButton}"/>
+                </Grid.Resources>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="50px" />
+                    <RowDefinition Height="50px" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" FontSize="31">Worker</TextBlock>
+                <RadioButton Grid.Row="1" Content="Request" IsChecked="True" Command="{Binding openRequest}" />
+                <!--<RadioButton Grid.Row="4" Content="Profile"  Command="{Binding openProfile}"/>-->
+
+                <RadioButton Grid.Row="2" Content="Exit"  Command="{Binding ExitAccount}" />
+
+            </Grid>
+        </Border>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="auto"/>
+
+            </Grid.RowDefinitions>
+
+            <TextBlock Background="{StaticResource BrushPrimary3}" Grid.Row="0" FontSize="31">Library</TextBlock>
+            <Button Click="Button_Click" Grid.Row="0" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}"   HorizontalAlignment="Right" Margin="0 5 5 0" Opacity="0.3">
+                <materialDesign:PackIcon Kind="Close" Width="20" Height="20"/>
+            </Button>
+            <ContentControl Grid.Row="1" Content="{Binding CurrentLocalViewModel}">
+                <ContentControl.Resources>
+                    <DataTemplate DataType="{x:Type vm:ProfileVM}">
+                        <v:ProfileView/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type vm:RequestsVM}">
+                        <v:RequestView/>
+                    </DataTemplate>
+
+
+                </ContentControl.Resources>
+            </ContentControl>
+            <StatusBar Grid.Row="2">
+                <StatusBarItem>
+                    <TextBlock>Worker menu</TextBlock>
+                </StatusBarItem>
+            </StatusBar>
+
+        </Grid>
+
     </Grid>
+
 </UserControl>
