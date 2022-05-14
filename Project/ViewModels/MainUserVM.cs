@@ -51,7 +51,7 @@ namespace Project.ViewModels
         {
             get
             {
-                return new NavigationCommand<ProfileVM>(new NavigationService<ProfileVM>(_localNavigationStore, () => new ProfileVM(_currentAccount)));
+                return new NavigationCommand<ProfileVM>(new NavigationService<ProfileVM>(_localNavigationStore, () => new ProfileVM(_currentAccount,_accountDataService)));
             }
         }
         public ICommand openHistory

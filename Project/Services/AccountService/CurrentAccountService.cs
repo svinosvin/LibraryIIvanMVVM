@@ -40,13 +40,13 @@ namespace Project.Services.AccountService
         public ICommand GetAuthorizeCommand(NavigationStore _navigationStore)
         {
             if (Variation == AccountsVariation.Admin)
-                return new NavigationCommand<MainAdmVM>(new NavigationService<MainAdmVM>(_navigationStore, () => new MainAdmVM(this, _navigationStore)));
+                return new NavigationCommand<MainAdmVM>(new NavigationService<MainAdmVM>(_navigationStore, () => new MainAdmVM(this, _navigationStore,_accountDataService,_bookDataService,_workerDataService)));
 
             if (Variation == AccountsVariation.User)
                 return new NavigationCommand<MainUserVM>(new NavigationService<MainUserVM>(_navigationStore, () => new MainUserVM(this, _navigationStore,_accountDataService,_bookDataService)));
             
             
-                return new NavigationCommand<MainWorkerVM>(new NavigationService<MainWorkerVM>(_navigationStore, () => new MainWorkerVM(this, _navigationStore)));
+                return new NavigationCommand<MainWorkerVM>(new NavigationService<MainWorkerVM>(_navigationStore, () => new MainWorkerVM(this, _navigationStore,_accountDataService,_bookDataService,_workerDataService)));
 
         }
 

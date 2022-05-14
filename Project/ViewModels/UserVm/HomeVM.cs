@@ -130,7 +130,6 @@ namespace Project.ViewModels.UserVm
             _bookDataService = bookdataService;
             _accountDataService = accountDataService;
             _contextFactory = new AppDbContextFactory(); 
-            _currentAccount.Login("user", "1234", "1234", false);
             User = (User)(_currentAccount.CurrentAccount);
             Initialization = InitializeAsync();
           

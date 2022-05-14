@@ -13,21 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Project.Views
+namespace Project.Views.Admin
 {
     /// <summary>
-    /// Логика взаимодействия для MainAdminView.xaml
+    /// Логика взаимодействия для UsersView.xaml
     /// </summary>
-    public partial class MainAdminView : UserControl
+    public partial class UsersView : UserControl
     {
-        public MainAdminView()
+        public UsersView()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
         }
     }
 }

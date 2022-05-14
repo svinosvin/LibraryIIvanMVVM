@@ -1,0 +1,57 @@
+﻿<Window x:Class="Project.Windows.WindowAddUser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project.Windows"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:components="clr-namespace:Project.Components"
+        
+       xmlns:system="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="Добавление пользователя" Height="500" Width="400" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            
+
+
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0"  VerticalAlignment="Top"  Margin="10 0">
+
+            <TextBox Text="{Binding Username}" BorderThickness="0 0 0 1.5" 
+                                 BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-20"
+                                 FontSize="16" materialDesign:HintAssist.Hint="Username"
+                                 Margin="0 20 0 30" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+            <components:BindablePasswordBox ToolTip="Пароль должен быть от 4 символов!" Password="{Binding Password}"
+                                                         BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" 
+                                                         materialDesign:HintAssist.FloatingOffset="0,-18"
+                                                         FontSize="16" materialDesign:HintAssist.Hint="Password" 
+                                                         Margin="0 20 0 30"  />
+            <components:BindablePasswordBox ToolTip="Пароль должен быть от 4 символов!"
+                                                        Password="{Binding RepPassword}"
+                                                        BorderThickness="0 0 0 1.5" 
+                                                        BorderBrush="#C5C8CC"
+                                                        materialDesign:HintAssist.FloatingOffset="0,-18" FontSize="16" 
+                                                        materialDesign:HintAssist.Hint="Repeat Password" 
+                                                        Margin="0 20 0 50"/>
+            <TextBox Text="{Binding Email}" BorderThickness="0 0 0 1.5" ToolTip="Пример:email@bk.ru"
+                                 BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-20"
+                                 FontSize="16" materialDesign:HintAssist.Hint="Email"
+                                 Margin="0 20 0 30" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+            <TextBox Text="{Binding TelNumber}" BorderThickness="0 0 0 1.5" ToolTip="Пример:+375255555555"
+                                 BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-20"
+                                 FontSize="16" materialDesign:HintAssist.Hint="Telnumber"
+                                 Margin="0 20 0 30" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+            <Button Command="{Binding AddAWorker}"  Grid.Row="1" Content="Добавить" IsDefault="True" materialDesign:ButtonAssist.CornerRadius="5" Background="#05B790" Foreground="#ffffff" FontSize="16" Height="45" Width="120" Margin="20" Click="Button_Click" />
+
+
+        </StackPanel>
+
+       
+    </Grid>
+</Window>

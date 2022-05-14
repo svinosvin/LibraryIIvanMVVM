@@ -102,6 +102,7 @@
                                  FontSize="16" materialDesign:HintAssist.Hint="Username"
                                  Margin="0 0 0 0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
 
+                      
                         <components:BindablePasswordBox  Password="{Binding Password}"
                                                          BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" 
                                                          materialDesign:HintAssist.FloatingOffset="0,-18"
@@ -114,6 +115,7 @@
                                                         materialDesign:HintAssist.FloatingOffset="0,-18" FontSize="16" 
                                                         materialDesign:HintAssist.Hint="Repeat Password" 
                                                         Margin="0 20 0 0"/>
+                        
 
                         <CheckBox  Margin="0 40 0 20" IsChecked="{Binding isAdmin}" FontSize="13">
                             <TextBlock>

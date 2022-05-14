@@ -40,6 +40,7 @@ namespace Project.Services.AunthenticationService
                 {
                     Login = username,
                     Password = HashedPassword,
+                    Position = positionAtWork,
                     Person = new Person
                     {
                         Email = email,
@@ -56,14 +57,16 @@ namespace Project.Services.AunthenticationService
         }
         public async Task<Worker> LoginWorker(string username, string password, string confirmPassword)
         {
-            if (password != confirmPassword)
-                throw new InvalidPasswordException(username, password);
-
             Worker worker = await _workerDataService.GetByUsername(username);
+            if (password == confirmPassword)
+            {
+               
+                PasswordVerificationResult result = _passwordHasher.VerifyHashedPassword( worker.Password, password);
+                if (result != PasswordVerificationResult.Success)
+                    throw new InvalidPasswordException(username, password);
+            }
 
-            PasswordVerificationResult result = _passwordHasher.VerifyHashedPassword(password, worker.Password);
-            if (result != PasswordVerificationResult.Success)
-                throw new InvalidPasswordException(username, password);
+           
 
             return worker;
         }

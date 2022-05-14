@@ -45,15 +45,15 @@
                     <StackPanel VerticalAlignment="Center" Margin="75 100 75 60">
                         <TextBox Text="{Binding Username}" BorderThickness="0 0 0 1.5" 
                                  BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-20"
-                                 FontSize="16" materialDesign:HintAssist.Hint="Username"
-                                 Margin="0 0 0 0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                 FontSize="16" materialDesign:HintAssist.Hint="Username" ToolTip="Логин должен быть от 4 символов!"
+                                 Margin="0 0 0 0" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  />
 
                         <TextBox Text="{Binding Email,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  BorderThickness="0 0 0 1.5" 
                                  BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-20"
-                                 FontSize="16" materialDesign:HintAssist.Hint="Email"
+                                 FontSize="16" materialDesign:HintAssist.Hint="Email" ToolTip="Пример:email@bk.ru"
                                  Margin="0 40 0 0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
 
-                        <TextBox Text="{Binding Telephone}" BorderThickness="0 0 0 1.5" 
+                        <TextBox Text="{Binding Telephone}" BorderThickness="0 0 0 1.5" ToolTip="Пример:+375255555555"
                                  BorderBrush="#C5C8CC" materialDesign:HintAssist.FloatingOffset="0,-20"
                                  FontSize="16" materialDesign:HintAssist.Hint="Telephone"
                                  Margin="0 40 0 50" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
@@ -115,14 +115,14 @@
                                                          BorderThickness="0 0 0 1.5" BorderBrush="#C5C8CC" 
                                                          materialDesign:HintAssist.FloatingOffset="0,-18"
                                                          FontSize="16" materialDesign:HintAssist.Hint="Password" 
-                                                         Margin="0 0 0 0" />
+                                                         Margin="0 0 0 0" ToolTip="Пароль должен быть от 4 символов!"/>
                         <components:BindablePasswordBox
                                                         Password="{Binding RepeatPassword}"
                                                         BorderThickness="0 0 0 1.5" 
                                                         BorderBrush="#C5C8CC"
                                                         materialDesign:HintAssist.FloatingOffset="0,-18" FontSize="16" 
                                                         materialDesign:HintAssist.Hint="Repeat Password" 
-                                                        Margin="0 40 0 50"/>
+                                                        Margin="0 40 0 50" ToolTip="Пароль должен быть от 4 символов!"/>
 
                         <StackPanel Orientation="Horizontal">
                             <Button Content="Sign up" IsDefault="True" Background="#05B790" Foreground="#ffffff" FontSize="18" materialDesign:ButtonAssist.CornerRadius="22" Height="45" Width="120"/>
