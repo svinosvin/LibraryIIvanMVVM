@@ -25,7 +25,7 @@ namespace Project.ViewModels.AdminVm
             _currentAccount = currentAccount;
             dbContextFactory = new AppDbContextFactory();
             fullList();
-            SelectedItem = Workers.First();
+            SelectedItem = Workers.FirstOrDefault();
         }
         private Worker _selectedItem;
         public Worker SelectedItem

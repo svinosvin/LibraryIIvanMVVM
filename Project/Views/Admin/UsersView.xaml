@@ -24,11 +24,13 @@
                 </LinearGradientBrush>
             </DockPanel.Background>
 
-            <TextBlock Grid.Column="0" Grid.Row="0" Style="{StaticResource BaseText}"  VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="26">Users</TextBlock>
-           
+            <TextBlock  Style="{StaticResource BaseText}"  VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="26">Users</TextBlock>
+
+            <Button HorizontalAlignment="Right"  VerticalAlignment="Top" Command="{Binding DeleteUser}"     Content="Удалить" IsDefault="True"  Background="#05B790" Foreground="#ffffff" FontSize="16"  Width="120" Margin="20" />
+
 
         </DockPanel>
-        <ListView
+        <ListView SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
                   ScrollViewer.CanContentScroll="True" 
                   ScrollViewer.VerticalScrollBarVisibility="Visible"
                   MaxHeight="400"

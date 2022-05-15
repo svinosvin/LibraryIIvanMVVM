@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Project.Services.AccountService.CurrentAccountService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAQIAAAGBQQAgAAIQAAAAAgA=</HashCode>
+      <FileName>Services\AccountService\CurrentAccountService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Project.Services.AunthenticationService.AunthenticationService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAABAAAAAAAQAAAQAAA=</HashCode>
+      <FileName>Services\AunthenticationService\AunthenticationService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Project.Services.AunthenticationService.HashHelper" Collapsed="true">
+    <Position X="7" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\AunthenticationService\HashHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.Services.AunthenticationService.WorkerAuthenticationService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAEAAAAAAAAAAAAAAAAAAAgAAAAAACAAAA=</HashCode>
+      <FileName>Services\AunthenticationService\WorkerAuthenticationService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Project.Services.Generic.AccountDataService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAABAAAAAAAAKAAGAAEAAAgAEAAAAAAA=</HashCode>
+      <FileName>Services\Generic\AccountDataService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Project.Services.Generic.BookDataService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAABAAAAAAAAIAAEAAEAAAgAEAAAAAAA=</HashCode>
+      <FileName>Services\Generic\BookDataService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Project.Services.Generic.GenericDataService&lt;T&gt;" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAABAAAAAAAAIAAEAAEAAAgAEAAAAAAA=</HashCode>
+      <FileName>Services\Generic\GenericDataService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Project.Services.Generic.WorkerDataService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAABAAAAAAAAKAAGAAEAAAgAEAAAAAAA=</HashCode>
+      <FileName>Services\Generic\WorkerDataService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Project.Services.NavigationService&lt;TViewModel&gt;" Collapsed="true">
+    <Position X="8.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAQAEAAAAA=</HashCode>
+      <FileName>Services\NavigationService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.Services.NonQueryDataService&lt;T&gt;" Collapsed="true">
+    <Position X="10.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAIAAEAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\NonQueryDataService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.ViewModels.AdminVm.BooksVM" Collapsed="true">
+    <Position X="13.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BEEAAAAAAAIAAAAAgCACBQBAgkAIAAKAAAAEAAAAAAA=</HashCode>
+      <FileName>ViewModels\AdminVm\BooksVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.ViewModels.AdminVm.ProfileVM" Collapsed="true">
+    <Position X="15.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\AdminVm\ProfileVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.ViewModels.AdminVm.UsersVM" Collapsed="true">
+    <Position X="13.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAIAAAAAAAAAAAAAgCAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\AdminVm\UsersVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.ViewModels.AdminVm.WorkersVM" Collapsed="true">
+    <Position X="15.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEQAAAAAAAAAAAAAEAAAAAAAAwgAAAAAABAgAACAAAA=</HashCode>
+      <FileName>ViewModels\AdminVm\WorkersVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.ViewModels.UserVm.AboutVM" Collapsed="true">
+    <Position X="12" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\UserVm\AboutVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.ViewModels.UserVm.FavouritesVM" Collapsed="true">
+    <Position X="13.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAABAAAAIAAAAAAAAAAQAIAgCAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\UserVm\FavouritesVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.ViewModels.UserVm.HistoryVM" Collapsed="true">
+    <Position X="15.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAABAACIAAAAAAAAAAQAIggCAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\UserVm\HistoryVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.ViewModels.UserVm.HomeVM" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>FEEBAACMEAIAAAAAAAACBQBIg0CIAIKAIAAAAACAAIA=</HashCode>
+      <FileName>ViewModels\UserVm\HomeVM.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Project.ViewModels.UserVm.ProfileVM" Collapsed="true">
+    <Position X="13.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAMAAAGAAAAAAARAAgAQABgCAQAgAIAAAAEAQAGA=</HashCode>
+      <FileName>ViewModels\UserVm\ProfileVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.ViewModels.WorkerVm.ProfileVM" Collapsed="true">
+    <Position X="13.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\WorkerVm\ProfileVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.ViewModels.WorkerVm.RequestsVM" Collapsed="true">
+    <Position X="15.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIGACATAQgBAAQQAAAAAAAAAAgQAAAIAQAQAAAAEAAA=</HashCode>
+      <FileName>ViewModels\WorkerVm\RequestsVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.Base.ViewModel" Collapsed="true">
+    <Position X="0.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Base\ViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Project.Services.AccountService.ICurrentAccountService" Collapsed="true">
+    <Position X="7" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAIAAAABQQAAAAAQAAAAAgA=</HashCode>
+      <FileName>Services\AccountService\ICurrentAccountService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Project.Services.AunthenticationService.IAunthenticationService" Collapsed="true">
+    <Position X="5.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Services\AunthenticationService\IAunthenticationService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Project.Services.AunthenticationService.IWorkerAuthenticationService" Collapsed="true">
+    <Position X="8.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Services\AunthenticationService\IWorkerAuthenticationService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Project.Services.IAccountDataService" Collapsed="true">
+    <Position X="0.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\IAccountDataService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Project.Services.IDataService&lt;T&gt;" Collapsed="true">
+    <Position X="1.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAABAAAAAAAAAAAEAAEAAAgAAAAAAAAA=</HashCode>
+      <FileName>Services\IDataService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Project.Services.IWorkerDataService" Collapsed="true">
+    <Position X="2.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\IWorkerDataService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Project.ViewModels.UserVm.IAsyncInitialization" Collapsed="true">
+    <Position X="12" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>ViewModels\UserVm\HomeVM.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Project.Base.IPageViewModel" Collapsed="true">
+    <Position X="3.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Base\IPageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Project.Services.AunthenticationService.RegisterResult" Collapsed="true">
+    <Position X="5.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAEAAAAAAAAAABAAAAAAAEAA=</HashCode>
+      <FileName>Services\AunthenticationService\IAunthenticationService.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

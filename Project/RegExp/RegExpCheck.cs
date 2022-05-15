@@ -99,9 +99,6 @@ namespace Project.RegExp
             }
         }
 
-        internal static bool CheckPhone(object telephone)
-        {
-            throw new NotImplementedException();
-        }
+     
     }
 }
